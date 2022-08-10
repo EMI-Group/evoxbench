@@ -4,8 +4,9 @@
 
 1. Download the following two requried files:
     - ``database.zip`` file
-      from [Google Drive](https://drive.google.com/file/d/11bQ1paHEWHDnnTPtxs2OyVY_Re-38DiO/view?usp=sharing)
-
+      from [Google Drive](https://drive.google.com/file/d/11bQ1paHEWHDnnTPtxs2OyVY_Re-38DiO/view?usp=sharing) 
+      or [Baidu云盘（提取码：mhgs）](https://pan.baidu.com/s/1PwWloA543-81O-GFkA7GKg)
+      
     - ``data.zip`` file
       from [Google Drive](https://drive.google.com/file/d/1_NsI-W40F9uh3deCg_z4W4Hme49rBznc/view?usp=sharing)
       or [Baidu云盘（提取码：idxw）](https://pan.baidu.com/s/1N7cbR2-Q757Yy2auG_ckfA?pwd=idxw)

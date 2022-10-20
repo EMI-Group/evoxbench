@@ -1,6 +1,6 @@
 from glob import glob
 import json
-from socketserver import StreamRequestHandler, ForkingTCPServer
+from socketserver import StreamRequestHandler, ThreadingTCPServer
 from io import TextIOWrapper
 from collections import OrderedDict
 import time
@@ -233,7 +233,7 @@ class EvoXSimpleRPC(StreamRequestHandler):
 
 
 def start_server(listen_addr=('127.0.0.1', 9876)):
-    http_server = ForkingTCPServer(listen_addr, EvoXSimpleRPC)
+    http_server = ThreadingTCPServer(listen_addr, EvoXSimpleRPC)
     http_server.serve_forever()
 
 

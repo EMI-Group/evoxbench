@@ -8,8 +8,9 @@
       or [Baidu云盘（提取码：mhgs）](https://pan.baidu.com/s/1PwWloA543-81O-GFkA7GKg)
       
     - ``data.zip`` file
-      from [Google Drive](https://drive.google.com/file/d/1_NsI-W40F9uh3deCg_z4W4Hme49rBznc/view?usp=sharing)
-      or [Baidu云盘（提取码：idxw）](https://pan.baidu.com/s/1N7cbR2-Q757Yy2auG_ckfA?pwd=idxw)
+      from [Google Drive](https://drive.google.com/file/d/1fUZtpTjfEQao2unLKaspL8fOq4xdSXt2/view?usp=sharing)
+      
+      or [Baidu云盘（提取码：lfib）](https://pan.baidu.com/s/1yopkISKyjbWIHXFV_Op3pg)
       
 2. ``pip install evoxbench`` to install the benchmark.
 

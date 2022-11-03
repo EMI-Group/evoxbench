@@ -319,7 +319,7 @@ class NASBench101Benchmark(Benchmark):
                  fidelity=108,  # options = [4, 12, 36, 108], i.e. acc measured at different epochs
                  objs='err&params&flops',  # objectives to be minimized
                  pf_file_path=get_path("nb101_pf.json"),  # path to NASBench101 Pareto front json file
-                 ps_file_path=get_path("nb101_pf.json"),  # path to NASBench101 Pareto set json file
+                 ps_file_path=get_path("nb101_ps.json"),  # path to NASBench101 Pareto set json file
                  normalized_objectives=True,  # whether to normalize the objectives
                  ):
         search_space = NASBench101SearchSpace()

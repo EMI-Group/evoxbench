@@ -150,7 +150,7 @@ class NASBench201Benchmark(Benchmark):
                  dataset='cifar10',  # ['cifar10', 'cifar100', 'ImageNet16-120']
                  # hardware='fpga',  # ['edgegpu', 'raspi4', 'edgetpu', 'pixel3', 'eyeriss', 'fpga']
                  pf_file_path=get_path("nb201_pf.json"),  # path to the Pareto front json file
-                 ps_file_path=get_path("nb201_pf.json"),  # path to the Pareto set json file
+                 ps_file_path=get_path("nb201_ps.json"),  # path to the Pareto set json file
                  normalized_objectives=True,  # whether to normalize the objectives
                  ):
         search_space = NASBench201SearchSpace()

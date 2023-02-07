@@ -19,7 +19,6 @@ HASH = {'conv3x3-bn-relu': 0, 'conv1x1-bn-relu': 1, 'maxpool3x3': 2}
 
 
 def get_path(name):
-    print(name)
     return str(Path(os.environ.get("EVOXBENCH_MODEL", os.getcwd())) / "nb101" / name)
 
 

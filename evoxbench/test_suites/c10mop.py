@@ -18,28 +18,21 @@ def c10mop(problem_id):
             90, objs='err&params&flops&latency', dataset='cifar10', normalized_objectives=True)
     elif problem_id == 5:
         return NASBench201Benchmark(
-            200, objs='err&params&flops&edgegpu_latency', dataset='cifar10',
+            200, objs='err&params&flops&edgegpu_latency&edgegpu_energy', dataset='cifar10',
             normalized_objectives=True)
     elif problem_id == 6:
         return NASBench201Benchmark(
-            200, objs='err&params&flops&edgegpu_latency&edgegpu_energy', dataset='cifar10',
-            normalized_objectives=True)
-    elif problem_id == 7:
-        return NASBench201Benchmark(
             200, objs='err&params&flops&eyeriss_latency&eyeriss_energy&eyeriss_arithmetic_intensity', dataset='cifar10',
             normalized_objectives=True)
-    elif problem_id == 8:
+    elif problem_id == 7:
         return NASBench201Benchmark(
             200, objs='err&params&flops&edgegpu_latency&edgegpu_energy'
                       '&eyeriss_latency&eyeriss_energy&eyeriss_arithmetic_intensity', dataset='cifar10',
             normalized_objectives=True)
-    elif problem_id == 9:
+    elif problem_id == 8:
         return DARTSBenchmark(
             objs='err&params', normalized_objectives=False)
-    elif problem_id == 10:
-        return DARTSBenchmark(
-            objs='err&flops', normalized_objectives=False)
-    elif problem_id == 11:
+    elif problem_id == 9:
         return DARTSBenchmark(
             objs='err&params&flops', normalized_objectives=False)
     else:

@@ -65,3 +65,4 @@ def fast_non_dominated_sort(F, **kwargs):
         current_front = next_front
 
     return fronts
+

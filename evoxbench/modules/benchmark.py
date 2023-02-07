@@ -4,12 +4,15 @@ from abc import ABC, abstractmethod
 
 # The performance indicator that calculates IGD and HV are from [pymoo](https://pymoo.org/).
 try:
-    from pymoo.factory import get_performance_indicator
+    from pymoo.indicators.igd import IGD
+    from pymoo.indicators.hv import HV
     from pymoo.util.nds.non_dominated_sorting import NonDominatedSorting
 except ImportError:
     # Using local pymoo module if import error.
-    from evoxbench.utils.pymoo.factory import get_performance_indicator
+    from evoxbench.utils.pymoo.indicators.igd import IGD
+    from evoxbench.utils.pymoo.indicators.hv import HV
     from evoxbench.utils.pymoo.util.nds.non_dominated_sorting import NonDominatedSorting
+
 
 from .evaluator import Evaluator
 from .search_space import SearchSpace
@@ -119,11 +122,10 @@ class Benchmark(ABC):
         if indicator == 'igd':
             # normalize Pareto front
             pf = self.normalize(self.pareto_front)
-            metric = get_performance_indicator("igd", pf)
-
+            metric = IGD(pf=pf)
         elif 'hv' in indicator:
             hv_ref_point = self.normalize(self.hv_ref_point)
-            metric = get_performance_indicator("hv", hv_ref_point)
+            metric = HV(ref_point=hv_ref_point)
         else:
             raise KeyError("the requested performance indicator is not define")
 
@@ -140,10 +142,10 @@ class Benchmark(ABC):
 
         # filter out the non-dominated solutions
         nd_front = NonDominatedSorting().do(F, only_non_dominated_front=True)
-        performance = metric.do(F[nd_front])
+        performance = metric(F[nd_front])
 
         if indicator == 'normalized_hv' and self.pareto_front is not None:
-            hv_norm = metric.do(self.normalize(self.pareto_front))
+            hv_norm = metric(self.normalize(self.pareto_front))
             performance = performance / hv_norm
 
         return performance

@@ -1,4 +1,4 @@
-from evoxbench.benchmarks import ResNet50DBenchmark, MobileNetV3Benchmark
+from evoxbench.benchmarks import ResNet50DBenchmark, MobileNetV3Benchmark, TransformerBenchmark
 
 __all__ = ['in1kmop']
 
@@ -14,11 +14,14 @@ def in1kmop(problem_id):
         return ResNet50DBenchmark(
             objs='err&params&flops', normalized_objectives=False)
     elif problem_id == 4:
-        return None
+        return TransformerBenchmark(       
+            objs='err&params', normalized_objectives=False)
     elif problem_id == 5:
-        return None
+        return TransformerBenchmark(
+            objs='err&params', normalized_objectives=False)
     elif problem_id == 6:
-        return None
+        return TransformerBenchmark(
+            objs='err&params', normalized_objectives=False)
     elif problem_id == 7:
         return MobileNetV3Benchmark(
             objs='err&params', normalized_objectives=False)

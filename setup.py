@@ -12,7 +12,7 @@ setup(
     # instead of
     # $ pip install EvoXBench
     name="evoxbench",
-    version="1.0.0",
+    version="1.0.1",
     description="A benchmark for NAS algorithms",  # Optional
     long_description=long_description,  # Optional
     long_description_content_type="text/markdown",
@@ -54,7 +54,7 @@ setup(
     # `src/`, it is necessary to specify the `package_dir` argument.
     # package_dir={"": ""},
     # find_packages failed to work, so manually list packages.
-    data_files=[('', ['config.json', 'evoxbench/__main__.py'])],
+    # data_files=[('', ['evoxbench/__main__.py'])],
     packages=find_packages(),
     # packages=[
     #     "evoxbench",
@@ -96,7 +96,7 @@ setup(
     # executes the function `main` from this package when invoked:
     entry_points={
         "console_scripts": [
-            "evoxbench=evoxbench.__main__:main",
+            # "evoxbench=evoxbench.__main__:main",
             "evoxbenchrpc=evoxbench.api.rpc:main",
         ],
     },

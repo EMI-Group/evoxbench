@@ -3,6 +3,7 @@ import weakref
 import numpy as np
 
 
+
 class Tree:
     '''
     Implementation of Nary-tree.

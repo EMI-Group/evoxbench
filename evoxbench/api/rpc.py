@@ -67,8 +67,8 @@ def new_benchmark_obj(config):
         obj = benchmarks.MobileNetV3Benchmark(**args)
     elif name == 'resnet':
         obj = benchmarks.ResNet50DBenchmark(**args)
-    # elif name == 'transformer':
-    #     obj = benchmarks.TransformerBenchmark(**args)
+    elif name == 'transformer':
+        obj = benchmarks.TransformerBenchmark(**args)
     return obj
 
 

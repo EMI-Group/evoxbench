@@ -71,7 +71,7 @@ setup(
         "pyyaml",
         "django",
         "numpy",
-        "pymoo",
+        # "pymoo",
         "scikit-learn",
         "scipy",
     ],  # Optional

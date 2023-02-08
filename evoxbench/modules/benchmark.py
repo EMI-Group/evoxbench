@@ -2,18 +2,6 @@ import numpy as np
 from numpy import ndarray
 from abc import ABC, abstractmethod
 
-# The performance indicator that calculates IGD and HV are from [pymoo](https://pymoo.org/).
-try:
-    from pymoo.indicators.igd import IGD
-    from pymoo.indicators.hv import HV
-    from pymoo.util.nds.non_dominated_sorting import NonDominatedSorting
-except ImportError:
-    # Using local pymoo module if import error.
-    from evoxbench.utils.pymoo.indicators.igd import IGD
-    from evoxbench.utils.pymoo.indicators.hv import HV
-    from evoxbench.utils.pymoo.util.nds.non_dominated_sorting import NonDominatedSorting
-
-
 from .evaluator import Evaluator
 from .search_space import SearchSpace
 
@@ -110,6 +98,14 @@ class Benchmark(ABC):
         return F
 
     def calc_perf_indicator(self, inputs, indicator='igd'):
+
+        # The performance indicator that calculates IGD and HV are from [pymoo](https://pymoo.org/).
+        try:
+            from pymoo.indicators.igd import IGD
+            from pymoo.indicators.hv import HV
+            from pymoo.util.nds.non_dominated_sorting import NonDominatedSorting
+        except ImportError:
+            raise ImportError('please first install pymoo from https://pymoo.org/')
 
         assert indicator in ['igd', 'hv', 'normalized_hv'], "The requested performance indicator is not supported"
 

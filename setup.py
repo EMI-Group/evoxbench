@@ -12,7 +12,7 @@ setup(
     # instead of
     # $ pip install EvoXBench
     name="evoxbench",
-    version="1.0.1",
+    version="1.0.2",
     description="A benchmark for NAS algorithms",  # Optional
     long_description=long_description,  # Optional
     long_description_content_type="text/markdown",

@@ -11,11 +11,11 @@
       from [Google Drive](https://drive.google.com/file/d/1fUZtpTjfEQao2unLKaspL8fOq4xdSXt2/view?usp=sharing)
       
       or [Baidu云盘（提取码：lfib）](https://pan.baidu.com/s/1yopkISKyjbWIHXFV_Op3pg)
-      
+    
 2. ``pip install evoxbench`` to install the benchmark.
 
 3. Configure the benchmark via the following steps:
- 
+
 ```python
     from evoxbench.database.init import config
 
@@ -39,6 +39,12 @@
 ## Database
 
 Visit this webpage for more information: https://github.com/liuxukun2000/evoxdatabase
+
+## Support
+
+- You can ask any question in [issues block](https://github.com/EMI-Group/evoxbench/issues) and upload your contribution by pulling request (PR).
+- If you have any question,  please join the QQ group to ask questions (Group number: 297969717).
+<img src="https://github.com/EMI-Group/evoxbench/blob/main/assets/QQ%20Group%20%20Number.jpg" width="20%">
 
 ## Acknowledgement
 

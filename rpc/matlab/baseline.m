@@ -1,3 +1,5 @@
+# Please download PlatEMO (https://github.com/BIMK/PlatEMO) first, the EvoXBench code in matlab is embedded in PlatEMO platform.
+# In PlatEMO, you can run this script directly or use the GUI to run.
 addpath(genpath(cd));
 clear;
 clc;

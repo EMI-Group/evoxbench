@@ -1,11 +1,18 @@
 import numpy as np
+
 from pymoo.optimize import minimize
 from pymoo.core.problem import Problem
-from pymoo.factory import get_algorithm, get_sampling, get_crossover, get_mutation, get_reference_directions
+from pymoo.util.ref_dirs import get_reference_directions
+from pymoo.algorithms.moo.nsga2 import NSGA2
+from pymoo.algorithms.moo.moead import MOEAD
+from pymoo.algorithms.moo.nsga3 import NSGA3
 
+from pymoo.operators.crossover.sbx import SBX
+from pymoo.operators.mutation.pm import PM
+from pymoo.operators.sampling.rnd import IntegerRandomSampling
+from pymoo.operators.repair.rounding import RoundingRepair
 
 from evoxbench.test_suites import in1kmop
-
 
 _DEBUG = False  # run in debug mode
 
@@ -29,12 +36,12 @@ class In1KMOPProblem(Problem):
 
 def get_genetic_operator(crx_prob=1.0,  # crossover probability
                          crx_eta=30.0,  # SBX crossover eta
-                         mut_prob=None,  # mutation probability
+                         mut_prob=0.9,  # mutation probability
                          mut_eta=20.0,  # polynomial mutation hyperparameter eta
                          ):
-    sampling = get_sampling('int_lhs')
-    crossover = get_crossover('int_sbx', prob=crx_prob, eta=crx_eta)
-    mutation = get_mutation('int_pm', eta=mut_eta, prob=mut_prob)
+    sampling = IntegerRandomSampling()
+    crossover = SBX(prob=crx_prob, eta=crx_eta, repair=RoundingRepair(), vtype=int)
+    mutation = PM(prob=mut_prob, eta=mut_eta, repair=RoundingRepair(), vtype=int)
     return sampling, crossover, mutation
 
 
@@ -59,29 +66,27 @@ def get_benchmark_settings(n_obj):
 def nsga2(pop_size,
           crx_prob=1.0,  # crossover probability
           crx_eta=30.0,  # SBX crossover eta
-          mut_prob=None,  # mutation probability, i.e., 1/n
+          mut_prob=0.9,  # mutation probability
           mut_eta=20.0,  # polynomial mutation hyperparameter eta
           ):
 
     sampling, crossover, mutation = get_genetic_operator(crx_prob, crx_eta, mut_prob, mut_eta)
 
-    return get_algorithm(
-        "nsga2", pop_size=pop_size, sampling=sampling, crossover=crossover,
+    return NSGA2(pop_size=pop_size, sampling=sampling, crossover=crossover,
         mutation=mutation, eliminate_duplicates=True)
 
 
 def moead(ref_dirs,
           crx_prob=1.0,  # crossover probability
           crx_eta=20.0,  # SBX crossover eta
-          mut_prob=None,  # mutation probability, i.e., 1/n
+          mut_prob=0.9,  # mutation probability
           mut_eta=20.0,  # polynomial mutation hyperparameter eta
           neighborhood_size=20,  # neighborhood size
           prob_neighbor_mating=0.9,  # neighborhood selection probability
           ):
 
     sampling, crossover, mutation = get_genetic_operator(crx_prob, crx_eta, mut_prob, mut_eta)
-    return get_algorithm(
-        "moead", ref_dirs=ref_dirs, n_neighbors=neighborhood_size, prob_neighbor_mating=prob_neighbor_mating,
+    return MOEAD(ref_dirs=ref_dirs, n_neighbors=neighborhood_size, prob_neighbor_mating=prob_neighbor_mating,
         sampling=sampling, crossover=crossover, mutation=mutation)
 
 
@@ -89,14 +94,13 @@ def nsga3(pop_size,
           ref_dirs,
           crx_prob=1.0,  # crossover probability
           crx_eta=30.0,  # SBX crossover eta
-          mut_prob=None,  # mutation probability, i.e., 1/n
+          mut_prob=0.9,  # mutation probability
           mut_eta=20.0,  # polynomial mutation hyperparameter eta
           ):
 
     sampling, crossover, mutation = get_genetic_operator(crx_prob, crx_eta, mut_prob, mut_eta)
 
-    return get_algorithm(
-        'nsga3', pop_size=pop_size, ref_dirs=ref_dirs, sampling=sampling, crossover=crossover,
+    return NSGA3(pop_size=pop_size, ref_dirs=ref_dirs, sampling=sampling, crossover=crossover,
         mutation=mutation, eliminate_duplicates=True)
 
 

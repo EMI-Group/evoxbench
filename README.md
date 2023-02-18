@@ -1,5 +1,7 @@
 # Neural Architecture Search as Multiobjective Optimization Benchmarks: Problem Formulation and Performance Assessment [[arXiv]](https://arxiv.org/abs/2208.04321)
 
+## Introduction to EvoXBench
+[![Watch the video](https://github.com/EMI-Group/evoxbench/blob/main/assets/video%20cover.png)](https://www.emigroup.tech/wp-content/uploads/2023/02/tutorial.mp4)
 ## Preparation Steps
 
 1. Download the following two requried files:

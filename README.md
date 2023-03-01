@@ -5,6 +5,9 @@
 - Click on the image to watch the video.
 
 [![Watch the video](https://github.com/EMI-Group/evoxbench/blob/main/assets/video%20cover.png)](https://www.emigroup.tech/wp-content/uploads/2023/02/tutorial.mp4)
+
+- Please note that the calculation of IGD is only applicable to problems derived from search spaces that can be exhaustively evaluated (i.e., C-10/MOP1 - C-10/MOP7). This is because the true Pareto Fronts are available for such problems. For problems derived on the basis of surrogate models (i.e., C-10/MOP8 - C-10/MOP9 and IN-1K/MOP1 - IN-1K/MOP9), the true Pareto Fronts are unknown and we cannot calculate IGD. 
+
 ## Preparation Steps
 
 1. Download the following two requried files:

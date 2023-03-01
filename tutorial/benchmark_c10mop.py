@@ -158,6 +158,7 @@ if __name__ == '__main__':
             run_stats['F'] = F
 
             if pid < 8:
+                # we only calculate IGD for C-10/MOP1 - C-10/MOP7 since the true Pareto Fronts are available.
                 igd = benchmark.calc_perf_indicator(res.X, 'igd')
                 run_stats['IGD'] = igd
 

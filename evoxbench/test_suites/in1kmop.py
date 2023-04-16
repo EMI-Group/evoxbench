@@ -18,10 +18,10 @@ def in1kmop(problem_id):
             objs='err&params', normalized_objectives=False)
     elif problem_id == 5:
         return TransformerBenchmark(
-            objs='err&params', normalized_objectives=False)
+            objs='err&flops', normalized_objectives=False)
     elif problem_id == 6:
         return TransformerBenchmark(
-            objs='err&params', normalized_objectives=False)
+            objs='err&params&flops', normalized_objectives=False)
     elif problem_id == 7:
         return MobileNetV3Benchmark(
             objs='err&params', normalized_objectives=False)

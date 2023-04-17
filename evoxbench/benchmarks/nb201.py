@@ -99,7 +99,7 @@ class NASBench201Evaluator(Evaluator):
 
         if objs is None:
             objs = self.objs
-        objs = set(objs.split('&'))
+        objs = objs.split('&')
         batch_stats = []
         infos = {result.phenotype: result for result in NASBench201Result.objects.filter(phenotype__in=archs)}
         for arch in archs:

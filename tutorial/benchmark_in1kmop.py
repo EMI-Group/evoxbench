@@ -117,11 +117,11 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Benchmark IN1K/MOP')
     parser.add_argument('--moea', type=str, default='nsga2', help='which MOEA to run')
-    parser.add_argument('--runs', type=int, default=1, help='number of runs to repeat')
+    parser.add_argument('--runs', type=int, default=31, help='number of runs to repeat')
     args = parser.parse_args()
 
-    experiment_stats = []
     for pid in range(1, 10):
+        experiment_stats = []
         for r in range(1, args.runs+1):
             run_stats = {'run': r}
 

@@ -1,7 +1,7 @@
 # Neural Architecture Search as Multiobjective Optimization Benchmarks: Problem Formulation and Performance Assessment [[arXiv]](https://arxiv.org/abs/2208.04321)
 
 ## Announcement
-- We're excited to announce that EvoXBench has been updated to version **1.0.3**. **This latest release includes bug fixes for IN-1KMOP5, IN-1KMOP6 and NB201 benchmark **.
+- We're excited to announce that EvoXBench has been updated to version **1.0.3**. **This latest release includes bug fixes for IN-1KMOP5, IN-1KMOP6 and NB201 benchmark**.
 
   We recommend that all users upgrade to this latest version of EvoXBench. If you've already installed EvoXBench, you can update it by running the command: `pip install evoxbench==1.0.3`.
 

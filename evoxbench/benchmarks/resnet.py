@@ -406,7 +406,6 @@ class ResNet50DSearchSpace(SearchSpace):
         raise NotImplementedError
 
 
-class ResNet50DEvaluator(Evaluator):
     def __init__(self,
                  valid_acc_model_path=get_path("valid_acc_predictor_checkpoint.json"),
                  # ResNet50 validation acc predictor path

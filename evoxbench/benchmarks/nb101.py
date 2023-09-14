@@ -279,6 +279,8 @@ class NASBench101Evaluator(Evaluator):
                 arch['matrix'] = np.array(arch['matrix'])
                 fingerprint = model_spec.hash_spec(['conv3x3-bn-relu', 'conv1x1-bn-relu', 'maxpool3x3'])
                 ans = NASBench101Result.objects.get(index=fingerprint)
+                # data = list(NASBench101Result.objects.all())
+
 
                 if true_eval:
                     top1 = np.mean(ans.final_test_accuracy[f"epoch{self.fidelity}"])

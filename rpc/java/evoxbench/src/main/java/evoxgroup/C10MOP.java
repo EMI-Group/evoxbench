@@ -81,6 +81,11 @@ public class C10MOP extends BenchmarkFactory {
                 args.normalized_objectives = false;
                 config = new Config("darts", args);
                 break;
+            case 12:
+                args.objs = "";
+                args.normalized_objectives = false;
+                config = new Config("mosegnas", args);
+                break;                
             default:
                 throw new EvoXException("No such problem id");
         }

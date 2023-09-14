@@ -1,9 +1,4 @@
-<h1 align="center">
-  <img src=./_static/evox_logo.png alt="Logo" height="24em"/>
-  <strong>EvoXBench</strong>
-  <br>
-  Neural Architecture Search as Multiobjective Optimization Benchmarks: Problem Formulation and Performance Assessment <a href=https://arxiv.org/abs/2208.04321>arXiv</a>
-</h1>
+# Neural Architecture Search as Multiobjective Optimization Benchmarks: Problem Formulation and Performance Assessment [[arXiv]](https://arxiv.org/abs/2208.04321)
 
 ## Announcement
 - We're excited to announce that EvoXBench has been updated to version **1.0.3**. **This latest release includes bug fixes for IN-1KMOP5, IN-1KMOP6 and NB201 benchmark**.
@@ -18,20 +13,20 @@
 
 [![Watch the video](https://github.com/EMI-Group/evoxbench/blob/main/assets/video%20cover.png)](https://www.emigroup.tech/wp-content/uploads/2023/02/tutorial.mp4)
 
-- Please note that the calculation of IGD is only applicable to problems derived from search spaces that can be exhaustively evaluated (i.e., C-10/MOP1 - C-10/MOP7). This is because the true Pareto Fronts are available for such problems. For problems derived on the basis of surrogate models (i.e., C-10/MOP8 - C-10/MOP9 and IN-1K/MOP1 - IN-1K/MOP9), the true Pareto Fronts are unknown and we cannot calculate IGD.
+- Please note that the calculation of IGD is only applicable to problems derived from search spaces that can be exhaustively evaluated (i.e., C-10/MOP1 - C-10/MOP7). This is because the true Pareto Fronts are available for such problems. For problems derived on the basis of surrogate models (i.e., C-10/MOP8 - C-10/MOP9 and IN-1K/MOP1 - IN-1K/MOP9), the true Pareto Fronts are unknown and we cannot calculate IGD. 
 
 ## Preparation Steps
 
 1. Download the following two requried files:
     - ``database.zip`` file
-      from [Google Drive](https://drive.google.com/file/d/11bQ1paHEWHDnnTPtxs2OyVY_Re-38DiO/view?usp=sharing)
+      from [Google Drive](https://drive.google.com/file/d/11bQ1paHEWHDnnTPtxs2OyVY_Re-38DiO/view?usp=sharing) 
       or [Baidu云盘（提取码：mhgs）](https://pan.baidu.com/s/1PwWloA543-81O-GFkA7GKg)
-
+      
     - ``data.zip`` file
       from [Google Drive](https://drive.google.com/file/d/1fUZtpTjfEQao2unLKaspL8fOq4xdSXt2/view?usp=sharing)
-
+      
       or [Baidu云盘（提取码：lfib）](https://pan.baidu.com/s/1yopkISKyjbWIHXFV_Op3pg)
-
+    
 2. ``pip install evoxbench`` to install the benchmark.
 
 3. Configure the benchmark via the following steps:
@@ -47,7 +42,7 @@
     # |  |  __init__.py
     # |  |  db.sqlite3
     # |  |  ...
-    # |
+    # |  
     # └─ data/
     #    └─ darts/
     #    └─ mnv3/
@@ -73,4 +68,4 @@ Codes are developed upon: [NAS-Bench-101](https://github.com/google-research/nas
 , [NATS-Bench](https://xuanyidong.com/assets/projects/NATS-Bench)
 , [Once for All](https://github.com/mit-han-lab/once-for-all)
 , [AutoFormer](https://github.com/microsoft/Cream/tree/main/AutoFormer), [Django](https://www.djangoproject.com/)
-, [pymoo](https://pymoo.org/)
+, [pymoo](https://pymoo.org/) 

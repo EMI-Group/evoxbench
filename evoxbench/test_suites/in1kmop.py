@@ -1,4 +1,4 @@
-from evoxbench.benchmarks import ResNet50DBenchmark, MobileNetV3Benchmark, MoSegNASBenchmark
+from evoxbench.benchmarks import ResNet50DBenchmark, MobileNetV3Benchmark, MoSegNASBenchmark,TransformerBenchmark
 
 __all__ = ['in1kmop']
 

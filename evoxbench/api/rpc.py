@@ -71,7 +71,6 @@ def new_benchmark_obj(config):
         obj = benchmarks.TransformerBenchmark(**args)
     elif name == 'mosegnas':
         obj = benchmarks.MoSegNASBenchmark(**args)
-    else: raise Exception("No Model Found!")
     return obj
 
 

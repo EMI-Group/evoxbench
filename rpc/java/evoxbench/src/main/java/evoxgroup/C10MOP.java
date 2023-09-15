@@ -80,7 +80,7 @@ public class C10MOP extends BenchmarkFactory {
                 args.objs = "err&params&flops";
                 args.normalized_objectives = false;
                 config = new Config("darts", args);
-                break;              
+                break;
             default:
                 throw new EvoXException("No such problem id");
         }

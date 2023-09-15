@@ -215,10 +215,10 @@ class VisionTransformerSuper:
             # not exceed sample layer number
             if i < self.sample_layer_num:
                 blocks.set_sample_config(is_identity_layer=False,
-                                        sample_embed_dim=self.sample_embed_dim[i],
-                                        sample_mlp_ratio=self.sample_mlp_ratio[i],
-                                        sample_num_heads=self.sample_num_heads[i],
-                                        sample_out_dim=self.sample_output_dim[i])
+                                         sample_embed_dim=self.sample_embed_dim[i],
+                                         sample_mlp_ratio=self.sample_mlp_ratio[i],
+                                         sample_num_heads=self.sample_num_heads[i],
+                                         sample_out_dim=self.sample_output_dim[i])
             # exceeds sample layer number
             else:
                 blocks.set_sample_config(is_identity_layer=True)

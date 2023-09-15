@@ -1,4 +1,4 @@
-from evoxbench.benchmarks import ResNet50DBenchmark, MobileNetV3Benchmark, MoSegNASBenchmark,TransformerBenchmark
+from evoxbench.benchmarks import ResNet50DBenchmark, MobileNetV3Benchmark, TransformerBenchmark
 
 __all__ = ['in1kmop']
 
@@ -31,10 +31,5 @@ def in1kmop(problem_id):
     elif problem_id == 9:
         return MobileNetV3Benchmark(
             objs='err&params&flops&latency', normalized_objectives=False)
-    elif problem_id == 10:
-        return MoSegNASBenchmark(
-            objs = 'params&flops&mIoU&latency&FPS',
-            normalized_objectives=False
-        )
     else:
         raise ValueError("the requested problem id does not exist")

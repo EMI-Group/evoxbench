@@ -27,7 +27,6 @@ class MoSegNASSearchSpace(SearchSpace):
     def __init__(self, subnet_str=True, **kwargs):
         super().__init__(**kwargs)
         self.subnet_str = subnet_str
-        # stride_list = [1, 2, 2, 2]
         # number of MAX layers of each stage:
         # range of number of each layer estimated
         # [0/2,
@@ -127,7 +126,6 @@ class MoSegNASEvaluator(Evaluator):
     def evaluate(self, 
                  archs, # archs is subnets
                  true_eval = False, # true_eval: if evaluate based on data or true inference result
-                #  objs='err&params&flops&latency&FPS&mIoU',
                  objs='params&flops&latency&FPS&mIoU', # objectives to be minimized/maximized
                  **kwargs):
         """ evalute the performance of the given subnets """
@@ -136,14 +134,9 @@ class MoSegNASEvaluator(Evaluator):
         for index, subnet_encoded in enumerate(archs):
             print("evaluating subnet index {}, subnet {}:".format(index, subnet_encoded))
 
-            # pred contains params&flops at most
             pred = self.surrogate_model.predict(subnet = subnet_encoded,
             true_eval = true_eval, 
             objs = objs)
-            # objs='params&flops&latency&FPS&mIoU'
-
-            # if 'err' in objs:
-            #     pred['err'] = 1 - pred['acc']
             if 'FPS' in objs:
                 pred['FPS'] = 1000.0 / pred['latency']
             batch_stats.append(pred)
@@ -232,15 +225,9 @@ class MosegNASRankNet():
         for layer in range(self.n_hidden_layers):
             outputs = self.linear(outputs, self.weights[layer], self.biases[layer])
             outputs = [self.relu(x) for x in outputs]
-        
-        # Dropout layer
-        # outputs = [self.dropout(x) for x in outputs]
 
         # Output layer
         outputs = self.linear(outputs, self.weights[-1], self.biases[-1])
-
-        # Output -> [0, 1]
-        # outputs = [self.sigmoid(x) for x in outputs]
 
         return outputs
 
@@ -317,12 +304,6 @@ class MoSegNASSurrogateModel(SurrogateModel):
 
         return params, flops
 
-
-    # def real_predictor(self):
-    #     # accs
-    #     pass
-
-
     def surrogate_predictor(self, subnet, pretrained_predictor, objs):
         """ method to predict performance only for latency or mIoU from given architecture features(subnets) """        
         if 'latency' in objs:
@@ -364,9 +345,6 @@ class MoSegNASSurrogateModel(SurrogateModel):
                 pred['mIoU'] = self.surrogate_predictor(subnet = subnet, pretrained_predictor=self.mIoU_pretrained, objs = 'mIoU')
             if 'err' in objs:
                 pred['err'] = 1 - self.surrogate_predictor(subnet = subnet, pretrained_predictor=self.mIoU_pretrained, objs = 'mIoU')
-            
-            # if 'err' in objs:
-            #     pred['acc'] = self.real_predictor(subnet = subnet)
         else:
             try:
                 pred['params'], pred['flops'], pred['latency'], pred['mIoU'] = self.fit(subnet = subnet)

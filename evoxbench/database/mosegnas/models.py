@@ -4,8 +4,8 @@ from django.db import models
 
 
 class MoSegNASResult(NASBenchResult):
-    # TODO
-    flops = models.FloatField(default=-1)
-    # params = models.FloatField(default=-1)
-    # final_test_accuracy = models.JSONField(default=dict)
-    # final_validation_accuracy = models.JSONField(default=dict)
+    params = models.BigIntegerField(default=-1)
+    flops = models.BigIntegerField(default=-1)
+    latency = models.FloatField(default=-1)
+    FPS = models.FloatField(default=-1)
+    mIoU = models.FloatField(default=-1)

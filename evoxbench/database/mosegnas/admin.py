@@ -5,7 +5,5 @@ import mosegnas
 
 @admin.register(mosegnas.models.MoSegNASResult)
 class MoSegNASAdmin(admin.ModelAdmin):
-    # TODO
-    list_display = ["id", "index"]
-    search_fields = ["index"]
-# Register your models here.
+    list_display = ["id", "phenotype"]
+    search_fields = ["phenotype"]

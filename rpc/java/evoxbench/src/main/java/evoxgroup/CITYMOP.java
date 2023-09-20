@@ -1,12 +1,8 @@
 package evoxgroup;
-import evoxgroup.EvoXException;
-import evoxgroup.Benchmark;
-import evoxgroup.BenchmarkFactory;
-import evoxgroup.Config;
-import evoxgroup.Args;
 
-public class IN1KMOP extends BenchmarkFactory {
-    IN1KMOP(String address, int port) {
+
+public class CITYMOP extends BenchmarkFactory {
+    CITYMOP(String address, int port) {
         super(address, port);
     }
 
@@ -16,34 +12,34 @@ public class IN1KMOP extends BenchmarkFactory {
 
         switch (problemId) {
             case 1:
-                args.objs = "err&params";
+                args.objs = "params&flops&mIoU&latency&FPS";
                 args.normalized_objectives = false;
-                config = new Config("resnet", args);
+                config = new Config("mosegnas", args);
                 break;
             case 2:
-                args.objs = "err&flops";
+                args.objs = "params&mIoU&latency&FPS";
                 args.normalized_objectives = false;
-                config = new Config("resnet", args);
+                config = new Config("mosegnas", args);
                 break;
             case 3:
-                args.objs = "err&params&flops";
+                args.objs = "flops&mIoU&latency&FPS";
                 args.normalized_objectives = false;
-                config = new Config("resnet", args);
+                config = new Config("mosegnas", args);
                 break;
-            case 7:
-                args.objs = "err&params";
+            case 4:
+                args.objs = "params&flops&mIoU";
                 args.normalized_objectives = false;
-                config = new Config("mnv3", args);
+                config = new Config("mosegnas", args);
                 break;
-            case 8:
-                args.objs = "err&params&flops";
+            case 5:
+                args.objs = "mIoU&latency&FPS";
                 args.normalized_objectives = false;
-                config = new Config("mnv3", args);
+                config = new Config("mosegnas", args);
                 break;
-            case 9:
-                args.objs = "err&params&flops&latency";
+            case 6:
+                args.objs = "mIoU";
                 args.normalized_objectives = false;
-                config = new Config("mnv3", args);
+                config = new Config("mosegnas", args);
                 break;
             default:
                 throw new EvoXException("No such problem id");

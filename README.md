@@ -6,7 +6,7 @@
 </h1>
 
   <p align="center">
-  ❤️ Found EvoX helpful? Please consider giving it a star to show your support! ⭐
+  ❤️ Found EvoXBench helpful? Please consider giving it a star to show your support! ⭐
 </p>
 
 ---

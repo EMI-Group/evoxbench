@@ -9,9 +9,11 @@
 
 ## 📢 Latest News & Updates
 
-🚀 **Version 1.0.3 is Out Now!** We've patched some bugs in benchmarks and improved the overall stability. It's recommended for all users to upgrade.
+- We're excited to announce that EvoXBench has been updated to version **1.0.3**. **This latest release includes bug fixes for IN-1KMOP5, IN-1KMOP6 and NB201 benchmark**.
 
-pip install evoxbench==1.0.3
+  We recommend that all users upgrade to this latest version of EvoXBench. If you've already installed EvoXBench, you can update it by running the command: `pip install evoxbench==1.0.3`.
+
+  Thank you for using EvoXBench, and please don't hesitate to reach out to us with any questions or feedback!
 
 ---
 

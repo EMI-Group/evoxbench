@@ -21,7 +21,7 @@
 ---
 
 
-## ⭐️ Key Features:
+## ⭐️ Key Features
 
 ### 📐 General NAS Problem Formulation
 - Cast NAS tasks into the mold of generalized multi-objective optimization problems.

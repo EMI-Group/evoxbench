@@ -86,6 +86,8 @@
     # config("/home/Downloads/database", "/home/Downloads/data")
 ```
 
+---
+
 ## 🗃 About the Database
 
 Explore our comprehensive database and understand its structure and content. Check it out [here](https://github.com/liuxukun2000/evoxdatabase).

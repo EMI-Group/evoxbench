@@ -5,6 +5,9 @@
   Neural Architecture Search as Multiobjective Optimization Benchmarks: Problem Formulation and Performance Assessment <a href=https://arxiv.org/abs/2208.04321>arXiv</a>
 </h1>
 
+
+🌟 In the **ever-evolving domain** of deep learning and computer vision, the pursuit for the pinnacle of **network architecture design** is paramount. The advent of **Neural Architecture Search (NAS)** signals a paradigm shift, automating design intricacies for heightened accuracy. Yet, as the gamut of deep learning applications broadens, the clamor for **versatile network architectures** that cater to multifaceted design criteria surges. Welcome to [**EvoXBench**](https://github.com/EMI-Group/evoxbench) — our trailblazing framework poised to metamorphose NAS endeavors into **holistic multi-objective optimization challenges**, heralding a fresh epoch for research via **evolutionary multiobjective optimization (EMO)** algorithms.
+
 ---
 
 ## 📢 Latest News & Updates
@@ -17,10 +20,8 @@
 
 ---
 
-In the **ever-evolving domain** of deep learning and computer vision, the pursuit for the pinnacle of **network architecture design** is paramount. The advent of **Neural Architecture Search (NAS)** signals a paradigm shift, automating design intricacies for heightened accuracy. Yet, as the gamut of deep learning applications broadens, the clamor for **versatile network architectures** that cater to multifaceted design criteria surges. Welcome to [**EvoXBench**](https://github.com/EMI-Group/evoxbench) — our trailblazing framework poised to metamorphose NAS endeavors into **holistic multi-objective optimization challenges**, heralding a fresh epoch for research via **evolutionary multiobjective optimization (EMO)** algorithms.
 
-
-## 🌟 Key Features of EvoXBench:
+## ⭐️ Key Features of EvoXBench:
 
 ### 📐 General NAS Problem Formulation
 - Cast NAS tasks into the mold of generalized multi-objective optimization problems.

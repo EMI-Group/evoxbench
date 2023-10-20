@@ -84,6 +84,7 @@
     #    └─ ...
     # Then, execute:
     # config("/home/Downloads/database", "/home/Downloads/data")
+```
 
 ## 🗃 About the Database
 

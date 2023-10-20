@@ -31,18 +31,39 @@ pip install evoxbench==1.0.3
 
 ## 🛠 Setup & Installation
 
-1. **Download Essential Files**:
-    - database.zip from Google Drive or Baidu云盘
-    - data.zip from Google Drive or Baidu云盘
-    
-2. **Install EvoXBench**:
-    pip install evoxbench
+1. Download the following two requried files:
+    - ``database.zip`` file
+      from [Google Drive](https://drive.google.com/file/d/11bQ1paHEWHDnnTPtxs2OyVY_Re-38DiO/view?usp=sharing)
+      or [Baidu云盘（提取码：mhgs）](https://pan.baidu.com/s/1PwWloA543-81O-GFkA7GKg)
 
-3. **Configure Your Benchmark**:
+    - ``data.zip`` file
+      from [Google Drive](https://drive.google.com/file/d/1fUZtpTjfEQao2unLKaspL8fOq4xdSXt2/view?usp=sharing)
+
+      or [Baidu云盘（提取码：lfib）](https://pan.baidu.com/s/1yopkISKyjbWIHXFV_Op3pg)
+
+2. ``pip install evoxbench`` to install the benchmark.
+
+3. Configure the benchmark via the following steps:
+
+```python
     from evoxbench.database.init import config
-    config("Path to database", "Path to data")
 
----
+    config("Path to databae", "Path to data")
+    # For example
+    # If you have the following structure
+    # /home/Downloads/
+    # └─ database/
+    # |  |  __init__.py
+    # |  |  db.sqlite3
+    # |  |  ...
+    # |
+    # └─ data/
+    #    └─ darts/
+    #    └─ mnv3/
+    #    └─ ...
+    # Then you should do:
+    # config("/home/Downloads/database", "/home/Downloads/data")
+```
 
 ## 🗃 About the Database
 

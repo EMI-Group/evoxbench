@@ -21,7 +21,7 @@
 ---
 
 
-## ⭐️ Key Features of EvoXBench:
+## ⭐️ Key Features:
 
 ### 📐 General NAS Problem Formulation
 - Cast NAS tasks into the mold of generalized multi-objective optimization problems.
@@ -37,7 +37,7 @@
 
 ---
 
-## 🎬 Get Started with EvoXBench
+## 🎬 Get Started
 
 <p align="center">
   <a href="https://www.emigroup.tech/wp-content/uploads/2023/02/tutorial.mp4">

@@ -9,6 +9,8 @@
   ❤️ Found EvoX helpful? Please consider giving it a star to show your support! ⭐
 </p>
 
+---
+
 🌟 In the **ever-evolving domain** of deep learning and computer vision, the pursuit for the pinnacle of **network architecture design** is paramount. The advent of **Neural Architecture Search (NAS)** signals a paradigm shift, automating design intricacies for heightened accuracy. Yet, as the gamut of deep learning applications broadens, the clamor for **versatile network architectures** that cater to multifaceted design criteria surges. Welcome to **EvoXBench** — our trailblazing framework poised to metamorphose NAS endeavors into **holistic multi-objective optimization challenges**, heralding a fresh epoch for research via **evolutionary multiobjective optimization (EMO)** algorithms.
 
 ---

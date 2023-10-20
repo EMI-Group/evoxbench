@@ -9,11 +9,30 @@
 
 ## 📢 Latest News & Updates
 
-- We're excited to announce that EvoXBench has been updated to version **1.0.3**. **This latest release includes bug fixes for IN-1KMOP5, IN-1KMOP6 and NB201 benchmark**.
+- 📌 We're thrilled to announce that EvoXBench has been updated to version **1.0.3**! This latest release addresses bugs in IN-1KMOP5, IN-1KMOP6, and the NB201 benchmark.
 
-  We recommend that all users upgrade to this latest version of EvoXBench. If you've already installed EvoXBench, you can update it by running the command: `pip install evoxbench==1.0.3`.
+  We urge all users to transition to this latest version of EvoXBench. If you're already onboard with EvoXBench, give this command a spin: `pip install evoxbench==1.0.3`.
 
-  Thank you for using EvoXBench, and please don't hesitate to reach out to us with any questions or feedback!
+  Your trust in EvoXBench means the world to us! For any queries or feedback, our doors are always open.
+
+---
+
+## 🚀 Introducing EvoXBench
+In the ever-evolving domain of deep learning and computer vision, the pursuit for the pinnacle of network architecture design is paramount. The advent of Neural Architecture Search (NAS) signals a paradigm shift, automating design intricacies for heightened accuracy. Yet, as the gamut of deep learning applications broadens, the clamor for versatile network architectures that cater to multifaceted design criteria surges. Welcome to **EvoXBench** — our trailblazing framework poised to metamorphose NAS endeavors into holistic multi-objective optimization challenges, heralding a fresh epoch for research via evolutionary multiobjective optimization (EMO) algorithms.
+
+## 🌟 Key Features of EvoXBench:
+
+### 📐 General NAS Problem Formulation
+- Cast NAS tasks into the mold of generalized multi-objective optimization problems.
+- Undertake an intricate exploration of NAS's nuanced traits through the prism of optimization.
+
+### 🛠️ Efficient Benchmarking Pipeline
+- Presenting an end-to-end conduit, primed for proficient benchmark assessments of EMO algorithms.
+- Shed the shackles of GPUs or bulky frameworks like PyTorch/TensorFlow, championing far-reaching compatibility.
+
+### 📊 Comprehensive Test Suites
+- Encompassing a wide spectrum of datasets and search spaces, and a trio of hardware devices.
+- Navigate challenges graced with up to eight objectives for a comprehensive evaluation escapade.
 
 ---
 
@@ -21,38 +40,37 @@
 
 <p align="center">
   <a href="https://www.emigroup.tech/wp-content/uploads/2023/02/tutorial.mp4">
-    <img src="https://github.com/EMI-Group/evoxbench/blob/main/assets/video%20cover.png" alt="Watch the tutorial" width="450"/>
+    <img src="https://github.com/EMI-Group/evoxbench/blob/main/assets/video%20cover.png" alt="Dive into the tutorial" width="450"/>
   </a>
   <br>
-  <small>Click on the image to watch the introduction video.</small>
+  <small>Tap the image to embark on the introductory video voyage.</small>
 </p>
 
-**Note:** Certain problems have specific limitations regarding IGD calculations. Please refer to the documentation for details.
+**Note:** Embarking on some problems? Be informed of certain nuances regarding IGD computations. For the nitty-gritty, our documentation is your best friend.
 
 ---
 
 ## 🛠 Setup & Installation
 
-1. Download the following two requried files:
-    - ``database.zip`` file
-      from [Google Drive](https://drive.google.com/file/d/11bQ1paHEWHDnnTPtxs2OyVY_Re-38DiO/view?usp=sharing)
+1. 📥 Download requisite files:
+    - ``database.zip`` 
+      via [Google Drive](https://drive.google.com/file/d/11bQ1paHEWHDnnTPtxs2OyVY_Re-38DiO/view?usp=sharing)
       or [Baidu云盘（提取码：mhgs）](https://pan.baidu.com/s/1PwWloA543-81O-GFkA7GKg)
 
-    - ``data.zip`` file
-      from [Google Drive](https://drive.google.com/file/d/1fUZtpTjfEQao2unLKaspL8fOq4xdSXt2/view?usp=sharing)
-
+    - ``data.zip``
+      via [Google Drive](https://drive.google.com/file/d/1fUZtpTjfEQao2unLKaspL8fOq4xdSXt2/view?usp=sharing)
       or [Baidu云盘（提取码：lfib）](https://pan.baidu.com/s/1yopkISKyjbWIHXFV_Op3pg)
 
-2. ``pip install evoxbench`` to install the benchmark.
+2. 💻 Run `pip install evoxbench` to get the benchmark.
 
-3. Configure the benchmark via the following steps:
+3. 🖥 Configure the benchmark:
 
 ```python
     from evoxbench.database.init import config
 
-    config("Path to databae", "Path to data")
-    # For example
-    # If you have the following structure
+    config("Path to database", "Path to data")
+    # For instance:
+    # With this structure:
     # /home/Downloads/
     # └─ database/
     # |  |  __init__.py
@@ -63,9 +81,8 @@
     #    └─ darts/
     #    └─ mnv3/
     #    └─ ...
-    # Then you should do:
+    # Then, execute:
     # config("/home/Downloads/database", "/home/Downloads/data")
-```
 
 ## 🗃 About the Database
 
@@ -93,4 +110,3 @@ A big shoutout to the following projects that have made EvoXBench possible:
  [AutoFormer](https://github.com/microsoft/Cream/tree/main/AutoFormer)
  [Django](https://www.djangoproject.com/)
  [pymoo](https://pymoo.org/)
-

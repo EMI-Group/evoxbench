@@ -67,7 +67,7 @@ pip install evoxbench==1.0.3
 
 ## 🗃 About the Database
 
-Explore our comprehensive database and understand its structure and content. Check it out here.
+Explore our comprehensive database and understand its structure and content. Check it out [here](https://github.com/liuxukun2000/evoxdatabase).
 
 ---
 
@@ -75,7 +75,7 @@ Explore our comprehensive database and understand its structure and content. Che
 
 - **Issues & Queries**: Use the issue tracker for bugs or questions.
 - **Contribute**: Submit your enhancements through a pull request (PR).
-- **Join our Community**: We have an active **QQ group**. Come join us! (ID: 297969717)
+- **Join our Community**: We have an active **QQ group** (ID: 297969717). Come join us! 
   
 ---
 

@@ -22,9 +22,7 @@
   We urge all users to transition to this latest version of EvoXBench. If you're already onboard with EvoXBench, give this command a spin: `pip install evoxbench==1.0.3`.
 
   Your trust in EvoXBench means the world to us! For any queries or feedback, our doors are always open.
-
----
-
+  
 
 ## ⭐️ Key Features
 
@@ -40,7 +38,6 @@
 - Encompassing a wide spectrum of datasets and search spaces, and a trio of hardware devices.
 - Navigate challenges graced with up to eight objectives for a comprehensive evaluation escapade.
 
----
 
 ## 🎬 Get Started
 
@@ -54,7 +51,6 @@
 
 **Note:** Embarking on some problems? Be informed of certain nuances regarding IGD computations. For the nitty-gritty, our documentation is your best friend.
 
----
 
 ## 🛠 Setup & Installation
 
@@ -91,21 +87,15 @@
     # config("/home/Downloads/database", "/home/Downloads/data")
 ```
 
----
-
 ## 🗃 About the Database
 
 Explore our comprehensive database and understand its structure and content. Check it out [here](https://github.com/liuxukun2000/evoxdatabase).
-
----
 
 ## 👥 Community & Support
 
 - **Issues & Queries**: Use the issue tracker for bugs or questions.
 - **Contribute**: Submit your enhancements through a pull request (PR).
 - **Join our Community**: We have an active **QQ group** (ID: 297969717). Come join us! 
-  
----
 
 ## 🙌 Credits & Acknowledgements
 

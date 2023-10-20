@@ -1,11 +1,9 @@
-<p align="center">
-  <img src="./_static/evox_logo.png" alt="EvoXBench Logo" width="300"/>
-  <h2 align="center"><strong>EvoXBench</strong></h2>
-  <h4 align="center">Neural Architecture Search as Multiobjective Optimization Benchmarks</h4>
-  <p align="center">
-    <a href="https://arxiv.org/abs/2208.04321"><strong>📝 View the Paper on arXiv</strong></a>
-  </p>
-</p>
+<h1 align="center">
+  <img src=./_static/evox_logo.png alt="Logo" height="24em"/>
+  <strong>EvoXBench</strong>
+  <br>
+  Neural Architecture Search as Multiobjective Optimization Benchmarks: Problem Formulation and Performance Assessment <a href=https://arxiv.org/abs/2208.04321>arXiv</a>
+</h1>
 
 ---
 

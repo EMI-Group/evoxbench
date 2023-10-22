@@ -5,9 +5,6 @@
   Neural Architecture Search as Multiobjective Optimization Benchmarks: Problem Formulation and Performance Assessment <a href=https://arxiv.org/abs/2208.04321>arXiv</a>
 </h1>
 
-  <p align="center">
-  ❤️ Found EvoXBench helpful? Please consider giving it a star to show your support! ⭐
-</p>
 
 ---
 
@@ -109,3 +106,8 @@ A big shoutout to the following projects that have made EvoXBench possible:
  [AutoFormer](https://github.com/microsoft/Cream/tree/main/AutoFormer),
  [Django](https://www.djangoproject.com/),
  [pymoo](https://pymoo.org/).
+
+
+  <p align="center">
+  ❤️ Found EvoXBench helpful? Please consider giving it a star to show your support! ⭐
+</p>

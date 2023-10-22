@@ -108,9 +108,9 @@ A big shoutout to the following projects that have made EvoXBench possible:
 
 ---
 
-🌌 **Show Your Support**  
-If you find EvoXBench helpful or see potential in our efforts, consider giving us a ⭐ on GitHub. It's a small gesture, but it helps more people discover our project and signifies your appreciation.
+🌌 **Support EvoXBench** — If you find it useful, give us a ⭐. It helps!
 
 ---
+
 
 

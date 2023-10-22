@@ -106,11 +106,8 @@ A big shoutout to the following projects that have made EvoXBench possible:
  [Django](https://www.djangoproject.com/),
  [pymoo](https://pymoo.org/).
 
----
-
 🌌 **Support EvoXBench** — If you find it useful, give us a ⭐. It helps!
 
----
 
 
 

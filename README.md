@@ -113,10 +113,8 @@ A big shoutout to the following projects that have made EvoXBench possible:
  [pymoo](https://pymoo.org/).
 
 ---
-
 🌌 **Show Your Support**  
 If you find EvoXBench helpful or see potential in our efforts, consider giving us a ⭐ on GitHub. It's a small gesture, but it helps more people discover our project and signifies your appreciation.
-
 ---
 
 

@@ -2,7 +2,7 @@ from evoxbench.benchmarks import MoSegNASBenchmark
 
 __all__ = ["citymop"]
 
-# test
+
 # params | latency | FPS | flops | mIoU
 def citymop(problem_id):
     if problem_id == 1:

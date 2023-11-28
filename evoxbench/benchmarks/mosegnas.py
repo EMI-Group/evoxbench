@@ -130,6 +130,18 @@ class MoSegNASBenchmark(Benchmark):
         print(X)
         print(F)
 
+    @property
+    def _utopian_point(self):
+        """ estimated from sampled architectures, use w/ caution """
+        return {
+        }[self.evaluator.objs]
+
+    @property
+    def _nadir_point(self):
+        """ estimated from sampled architectures, use w/ caution """
+        return {
+        }[self.evaluator.objs]
+
 
 class MoSegNASEvaluator(Evaluator):
     def __init__(self, surrogate_pretrained_list=None, pretrained_json=None, **kwargs):

@@ -107,14 +107,16 @@ A big shoutout to the following projects that have made EvoXBench possible:
  [Django](https://www.djangoproject.com/),
  [pymoo](https://pymoo.org/).
 
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=EMI-Group/evoxbench&type=Date)](https://star-history.com/#EMI-Group/evoxbench&Date)
+
  
 <p align="center">
   ❤️ Found EvoXBench helpful? Please consider giving it a star to show your support! ⭐
 </p>
 
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=EMI-Group/evoxbench&type=Date)](https://star-history.com/#EMI-Group/evoxbench&Date)
 
 
 

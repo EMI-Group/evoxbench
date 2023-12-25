@@ -14,7 +14,7 @@
 
 ## 📢 Latest News & Updates
 
-- 📌 We're thrilled to announce that EvoXBench has been updated to version **1.0.3**! This latest release addresses bugs in IN-1KMOP5, IN-1KMOP6, and the NB201 benchmark.
+- We're thrilled to announce that EvoXBench has been updated to version **1.0.3**! This latest release addresses bugs in IN-1KMOP5, IN-1KMOP6, and the NB201 benchmark.
 
   We urge all users to transition to this latest version of EvoXBench. If you're already onboard with EvoXBench, give this command a spin: `pip install evoxbench==1.0.3`.
 
@@ -36,7 +36,7 @@
 - Navigate challenges graced with up to eight objectives for a comprehensive evaluation escapade.
 
 
-## 🎬 Get Started
+## Get Started
 
 <p align="center">
   <a href="https://www.emigroup.tech/wp-content/uploads/2023/02/tutorial.mp4">
@@ -49,9 +49,9 @@
 **Note:** Embarking on some problems? Be informed of certain nuances regarding IGD computations. For the nitty-gritty, our documentation is your best friend.
 
 
-## 🛠 Setup & Installation
+## Setup & Installation
 
-1. 📥 Download requisite files:
+1. Download requisite files:
     - ``database.zip`` 
       via [Google Drive](https://drive.google.com/file/d/11bQ1paHEWHDnnTPtxs2OyVY_Re-38DiO/view?usp=sharing)
       or [Baidu云盘（提取码：mhgs）](https://pan.baidu.com/s/1PwWloA543-81O-GFkA7GKg)
@@ -60,9 +60,9 @@
       via [Google Drive](https://drive.google.com/file/d/1fUZtpTjfEQao2unLKaspL8fOq4xdSXt2/view?usp=sharing)
       or [Baidu云盘（提取码：lfib）](https://pan.baidu.com/s/1yopkISKyjbWIHXFV_Op3pg)
 
-2. 💻 Run `pip install evoxbench` to get the benchmark.
+2. Run `pip install evoxbench` to get the benchmark.
 
-3. 🖥 Configure the benchmark:
+3. Configure the benchmark:
 
 ```python
     from evoxbench.database.init import config
@@ -84,17 +84,20 @@
     # config("/home/Downloads/database", "/home/Downloads/data")
 ```
 
-## 🗃 About the Database
+## About the Database
 
 Explore our comprehensive database and understand its structure and content. Check it out [here](https://github.com/liuxukun2000/evoxdatabase).
 
-## 👥 Community & Support
+## Community & Support
 
 - **Issues & Queries**: Use the issue tracker for bugs or questions.
 - **Contribute**: Submit your enhancements through a pull request (PR).
-- **Join our Community**: We have an active **QQ group** (ID: 297969717). Come join us! 
+- **Join our Community**: We have an active QQ group (ID: 297969717).
 
-## 🙌 Credits & Acknowledgements
+## Sister Projects
+- EvoX: A computing framework for distributed GPU-aceleration of evolutionary computation, supporting a wide spectrum of evolutionary algorithms and test problems. Check out [here](https://github.com/EMI-Group/evox).
+
+## Credits & Acknowledgements
 
 A big shoutout to the following projects that have made EvoXBench possible:
 

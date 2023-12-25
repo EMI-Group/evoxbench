@@ -90,14 +90,28 @@ Explore our comprehensive database and understand its structure and content. Che
 
 ## Community & Support
 
-- **Issues & Queries**: Use the issue tracker for bugs or questions.
-- **Contribute**: Submit your enhancements through a pull request (PR).
-- **Join our Community**: We have an active QQ group (ID: 297969717).
+- Use the issue tracker for bugs or questions.
+- Submit your enhancements through a pull request (PR).
+- We have an active QQ group (ID: 297969717).
 
 ## Sister Projects
 - EvoX: A computing framework for distributed GPU-aceleration of evolutionary computation, supporting a wide spectrum of evolutionary algorithms and test problems. Check out [here](https://github.com/EMI-Group/evox).
 
-## Credits & Acknowledgements
+
+## Citing EvoXBench
+
+If you use EvoXBench in your research and want to cite it in your work, please use:
+```
+@article{EvoXBench,
+  title={Neural Architecture Search as Multiobjective Optimization Benchmarks: Problem Formulation and Performance Assessment},
+  author={Lu, Zhichao and Cheng, Ran and Jin, Yaochu and Tan, Kay Chen and Deb, Kalyanmoy},
+  journal={IEEE Transactions on Evolutionary Computation},
+  year={2023},
+  publisher={IEEE}
+}
+```
+
+## Acknowledgements
 
 A big shoutout to the following projects that have made EvoXBench possible:
 

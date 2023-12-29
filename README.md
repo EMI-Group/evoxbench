@@ -28,7 +28,6 @@ EvoXBench is a platfrom offering **instant benchmarking** of evolutionary multi-
 
 ### 🛠️ Efficient Benchmarking Pipeline
 - Presenting an end-to-end worflow for instant benchmark assessments of EMO algorithms.
-- With no requirement of GPUs/Pytorch/Tensorflow.
 - Providing instant fitness evaluations as numerical optimization.
 
 ### 📊 Comprehensive Test Suites

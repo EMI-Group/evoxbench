@@ -7,18 +7,17 @@
 
 ---
 
-In the ever-evolving domain of deep learning and computer vision, the pursuit for the pinnacle of network architecture design is paramount. The advent of **Neural Architecture Search (NAS)** signals a paradigm shift, automating design intricacies for heightened accuracy. Yet, as the gamut of deep learning applications broadens, the clamor for versatile network architectures that cater to multifaceted design criteria surges. Welcome to EvoXBench — our trailblazing framework poised to metamorphose NAS endeavors into holistic **Multi-objective Optimization Problems**, heralding a fresh epoch for research via **Evolutionary Multiobjective Optimization (EMO)** algorithms.
+EvoXBench is a platfrom offering **instant benchmark tests** for evolutionary multi-objective optimization (EMO) algorithms in neural architecture search (NAS). It facilitates efficient performance assessments **without the requirement of GPUs or PyTorch/TensorFlow**, enhancing accessibility for a broader range of research applications. It encompasses extensive test suites that cover a variety of datasets (CIFAR10, ImageNet, etc.), search spaces (NASBench101, NASBench201, NATS, DARTS, ResNet50, Transformer, MNV3, etc.), and hardware devices (Eyeriss, GPUs, Samsung Note10, etc.), providing **ready-to-use multi-objective optimization test suite**. Additionally, it provides a versatile interface **compatible with multiple programming languages** (Java, Matlab, Python, etc.).
 
 ---
 
 
 ## 📢 Latest News & Updates
 
-- We're thrilled to announce that EvoXBench has been updated to version **1.0.3**! This latest release addresses bugs in IN-1KMOP5, IN-1KMOP6, and the NB201 benchmark.
+- EvoXBench has been updated to version **1.0.3**! This latest release addresses bugs in IN-1KMOP5, IN-1KMOP6, and the NB201 benchmark.
 
-  We urge all users to transition to this latest version of EvoXBench. If you're already onboard with EvoXBench, give this command a spin: `pip install evoxbench==1.0.3`.
+  If you're already onboard with EvoXBench, give this command a spin: `pip install evoxbench==1.0.3`.
 
-  Your trust in EvoXBench means the world to us! For any queries or feedback, our doors are always open.
   
 
 ## ⭐️ Key Features
@@ -28,12 +27,12 @@ In the ever-evolving domain of deep learning and computer vision, the pursuit fo
 - Undertake an intricate exploration of NAS's nuanced traits through the prism of optimization.
 
 ### 🛠️ Efficient Benchmarking Pipeline
-- Presenting an end-to-end conduit, primed for proficient benchmark assessments of EMO algorithms.
-- Shed the shackles of GPUs or bulky frameworks like PyTorch/TensorFlow, championing far-reaching compatibility.
+- Presenting an end-to-end worflow for proficient benchmark assessments of EMO algorithms, supporting various programming languages including Java, Matlab, Python, etc.
+- Without requirement of GPUs/Pytorch/Tensorflow, providing instant fitness evaluations as numerical optimization.
 
 ### 📊 Comprehensive Test Suites
-- Encompassing a wide spectrum of datasets and search spaces, and a trio of hardware devices.
-- Navigate challenges graced with up to eight objectives for a comprehensive evaluation escapade.
+- Encompassing a wide spectrum of datasets, search spaces, and hardware devices.
+- Navigate challenges graced with up to eight objectives for a comprehensive evaluation of EMO algorithms.
 
 
 ## Get Started
@@ -46,7 +45,6 @@ In the ever-evolving domain of deep learning and computer vision, the pursuit fo
   <small>Tap the image to embark on the introductory video voyage.</small>
 </p>
 
-**Note:** Embarking on some problems? Be informed of certain nuances regarding IGD computations. For the nitty-gritty, our documentation is your best friend.
 
 
 ## Setup & Installation

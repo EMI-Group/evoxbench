@@ -23,16 +23,17 @@ EvoXBench is a platfrom offering **instant benchmarking** of evolutionary multi-
 ## ⭐️ Key Features
 
 ### 📐 General NAS Problem Formulation
-- Cast NAS tasks into the mold of generalized multi-objective optimization problems.
-- Undertake an intricate exploration of NAS's nuanced traits through the prism of optimization.
+- Formulating NAS tasks into general multi-objective optimization problems.
+- Exploring NAS's nuanced traits through the prism of evolutionary optimization.
 
 ### 🛠️ Efficient Benchmarking Pipeline
-- Presenting an end-to-end worflow for proficient benchmark assessments of EMO algorithms, supporting various programming languages including Java, Matlab, Python, etc.
-- Without requirement of GPUs/Pytorch/Tensorflow, providing instant fitness evaluations as numerical optimization.
+- Presenting an end-to-end worflow for instant benchmark assessments of EMO algorithms.
+- With no requirement of GPUs/Pytorch/Tensorflow.
+- Providing instant fitness evaluations as numerical optimization.
 
 ### 📊 Comprehensive Test Suites
 - Encompassing a wide spectrum of datasets, search spaces, and hardware devices.
-- Navigate challenges graced with up to eight objectives for a comprehensive evaluation of EMO algorithms.
+- Ready-to-use test multi-objective optimization suites with up to eight objectives.
 
 
 ## Get Started

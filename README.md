@@ -7,7 +7,7 @@
 
 ---
 
-EvoXBench is a platfrom offering **read-to-use instant benchmark tests** of evolutionary multi-objective optimization (EMO) algorithms in neural architecture search (NAS). It facilitates efficient performance assessments **with NO requirement of GPUs or PyTorch/TensorFlow**, enhancing accessibility for a broader range of research applications. It encompasses extensive test suites that cover a variety of datasets (CIFAR10, ImageNet, etc.), search spaces (NASBench101, NASBench201, NATS, DARTS, ResNet50, Transformer, MNV3, etc.), and hardware devices (Eyeriss, GPUs, Samsung Note10, etc.). Additionally, it provides a versatile interface **compatible with multiple programming languages** (Java, Matlab, Python, etc.).
+EvoXBench is a platfrom offering **instant benchmarking** of evolutionary multi-objective optimization (EMO) algorithms in neural architecture search (NAS), with ready to use test suites. It facilitates efficient performance assessments **with NO requirement of GPUs or PyTorch/TensorFlow**, enhancing accessibility for a broader range of research applications. It encompasses extensive test suites that cover a variety of datasets (CIFAR10, ImageNet, etc.), search spaces (NASBench101, NASBench201, NATS, DARTS, ResNet50, Transformer, MNV3, etc.), and hardware devices (Eyeriss, GPUs, Samsung Note10, etc.). It provides a versatile interface **compatible with multiple programming languages** (Java, Matlab, Python, etc.).
 
 ---
 

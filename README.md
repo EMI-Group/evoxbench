@@ -1,6 +1,5 @@
 <h1 align="center">
-  <img src=./_static/evox_logo.png alt="Logo" height="24em"/>
-  <strong>EvoXBench</strong>
+  <img src=./assets/EvoX-Bench-Logo.png alt="Logo" height="48em"/>
   <br>
   Neural Architecture Search as Multiobjective Optimization Benchmarks: Problem Formulation and Performance Assessment <a href=https://arxiv.org/abs/2208.04321>arXiv</a>
 </h1>
@@ -18,7 +17,7 @@ EvoXBench is a platfrom offering **instant benchmarking** of evolutionary multi-
 
   If you're already onboard with EvoXBench, give this command a spin: `pip install evoxbench==1.0.3`.
 
-  
+
 
 ## ⭐️ Key Features
 
@@ -50,7 +49,7 @@ EvoXBench is a platfrom offering **instant benchmarking** of evolutionary multi-
 ## Setup & Installation
 
 1. Download requisite files:
-    - ``database.zip`` 
+    - ``database.zip``
       via [Google Drive](https://drive.google.com/file/d/11bQ1paHEWHDnnTPtxs2OyVY_Re-38DiO/view?usp=sharing)
       or [Baidu云盘（提取码：mhgs）](https://pan.baidu.com/s/1PwWloA543-81O-GFkA7GKg)
 

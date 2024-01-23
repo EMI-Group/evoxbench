@@ -1,5 +1,9 @@
 <h1 align="center">
-  <img src=./assets/EvoX-Bench-Logo.png alt="Logo" height="128" width="500px"/>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/bench-logo-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/bench-logo-light.png">
+    <img alt="EvoXBench Logo" height="48em" src="./assets/bench-logo-light.png">
+  </picture>
   <br>
   Neural Architecture Search as Multiobjective Optimization Benchmarks: Problem Formulation and Performance Assessment <a href=https://arxiv.org/abs/2208.04321>arXiv</a>
 </h1>

@@ -1,46 +1,44 @@
 <h1 align="center">
-  <img src=./_static/evox_logo.png alt="Logo" height="24em"/>
-  <strong>EvoXBench</strong>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/bench-logo-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/bench-logo-light.png">
+    <img alt="EvoXBench Logo" height="48em" src="./assets/bench-logo-light.png">
+  </picture>
   <br>
   Neural Architecture Search as Multiobjective Optimization Benchmarks: Problem Formulation and Performance Assessment <a href=https://arxiv.org/abs/2208.04321>arXiv</a>
 </h1>
 
-<p align="center">
-  ❤️ Found EvoXBench helpful? Please consider giving it a star to show your support! ⭐
-</p>
-
 ---
 
-🌟 In the **ever-evolving domain** of deep learning and computer vision, the pursuit for the pinnacle of **network architecture design** is paramount. The advent of **Neural Architecture Search (NAS)** signals a paradigm shift, automating design intricacies for heightened accuracy. Yet, as the gamut of deep learning applications broadens, the clamor for **versatile network architectures** that cater to multifaceted design criteria surges. Welcome to **EvoXBench** — our trailblazing framework poised to metamorphose NAS endeavors into **holistic multi-objective optimization challenges**, heralding a fresh epoch for research via **evolutionary multiobjective optimization (EMO)** algorithms.
+EvoXBench is a platfrom offering **instant benchmarking** of evolutionary multi-objective optimization (EMO) algorithms in neural architecture search (NAS), with ready to use test suites. It facilitates efficient performance assessments **with NO requirement of GPUs or PyTorch/TensorFlow**, enhancing accessibility for a broader range of research applications. It encompasses extensive test suites that cover a variety of datasets (CIFAR10, ImageNet, etc.), search spaces (NASBench101, NASBench201, NATS, DARTS, ResNet50, Transformer, MNV3, etc.), and hardware devices (Eyeriss, GPUs, Samsung Note10, etc.). It provides a versatile interface **compatible with multiple programming languages** (Java, Matlab, Python, etc.).
 
 ---
 
 
 ## 📢 Latest News & Updates
 
-- 📌 We're thrilled to announce that EvoXBench has been updated to version **1.0.3**! This latest release addresses bugs in IN-1KMOP5, IN-1KMOP6, and the NB201 benchmark.
+- EvoXBench has been updated to version **1.0.3**! This latest release addresses bugs in IN-1KMOP5, IN-1KMOP6, and the NB201 benchmark.
 
-  We urge all users to transition to this latest version of EvoXBench. If you're already onboard with EvoXBench, give this command a spin: `pip install evoxbench==1.0.3`.
+  If you're already onboard with EvoXBench, give this command a spin: `pip install evoxbench==1.0.3`.
 
-  Your trust in EvoXBench means the world to us! For any queries or feedback, our doors are always open.
-  
+
 
 ## ⭐️ Key Features
 
 ### 📐 General NAS Problem Formulation
-- Cast NAS tasks into the mold of generalized multi-objective optimization problems.
-- Undertake an intricate exploration of NAS's nuanced traits through the prism of optimization.
+- Formulating NAS tasks into general multi-objective optimization problems.
+- Exploring NAS's nuanced traits through the prism of evolutionary optimization.
 
 ### 🛠️ Efficient Benchmarking Pipeline
-- Presenting an end-to-end conduit, primed for proficient benchmark assessments of EMO algorithms.
-- Shed the shackles of GPUs or bulky frameworks like PyTorch/TensorFlow, championing far-reaching compatibility.
+- Presenting an end-to-end worflow for instant benchmark assessments of EMO algorithms.
+- Providing instant fitness evaluations as numerical optimization.
 
 ### 📊 Comprehensive Test Suites
-- Encompassing a wide spectrum of datasets and search spaces, and a trio of hardware devices.
-- Navigate challenges graced with up to eight objectives for a comprehensive evaluation escapade.
+- Encompassing a wide spectrum of datasets, search spaces, and hardware devices.
+- Ready-to-use test multi-objective optimization suites with up to eight objectives.
 
 
-## 🎬 Get Started
+## Get Started
 
 <p align="center">
   <a href="https://www.emigroup.tech/wp-content/uploads/2023/02/tutorial.mp4">
@@ -50,13 +48,12 @@
   <small>Tap the image to embark on the introductory video voyage.</small>
 </p>
 
-**Note:** Embarking on some problems? Be informed of certain nuances regarding IGD computations. For the nitty-gritty, our documentation is your best friend.
 
 
-## 🛠 Setup & Installation
+## Setup & Installation
 
-1. 📥 Download requisite files:
-    - ``database.zip`` 
+1. Download requisite files:
+    - ``database.zip``
       via [Google Drive](https://drive.google.com/file/d/11bQ1paHEWHDnnTPtxs2OyVY_Re-38DiO/view?usp=sharing)
       or [Baidu云盘（提取码：mhgs）](https://pan.baidu.com/s/1PwWloA543-81O-GFkA7GKg)
 
@@ -64,9 +61,9 @@
       via [Google Drive](https://drive.google.com/file/d/1fUZtpTjfEQao2unLKaspL8fOq4xdSXt2/view?usp=sharing)
       or [Baidu云盘（提取码：lfib）](https://pan.baidu.com/s/1yopkISKyjbWIHXFV_Op3pg)
 
-2. 💻 Run `pip install evoxbench` to get the benchmark.
+2. Run `pip install evoxbench` to get the benchmark.
 
-3. 🖥 Configure the benchmark:
+3. Configure the benchmark:
 
 ```python
     from evoxbench.database.init import config
@@ -88,17 +85,35 @@
     # config("/home/Downloads/database", "/home/Downloads/data")
 ```
 
-## 🗃 About the Database
+## About the Database
 
 Explore our comprehensive database and understand its structure and content. Check it out [here](https://github.com/liuxukun2000/evoxdatabase).
 
-## 👥 Community & Support
+## Community & Support
 
-- **Issues & Queries**: Use the issue tracker for bugs or questions.
-- **Contribute**: Submit your enhancements through a pull request (PR).
-- **Join our Community**: We have an active **QQ group** (ID: 297969717). Come join us! 
+- Use the issue tracker for bugs or questions.
+- Submit your enhancements through a pull request (PR).
+- We have an active QQ group (ID: 297969717).
+- Official Website: https://evox.group/
 
-## 🙌 Credits & Acknowledgements
+## Sister Projects
+- EvoX: A computing framework for distributed GPU-aceleration of evolutionary computation, supporting a wide spectrum of evolutionary algorithms and test problems. Check out [here](https://github.com/EMI-Group/evox).
+
+
+## Citing EvoXBench
+
+If you use EvoXBench in your research and want to cite it in your work, please use:
+```
+@article{EvoXBench,
+  title={Neural Architecture Search as Multiobjective Optimization Benchmarks: Problem Formulation and Performance Assessment},
+  author={Lu, Zhichao and Cheng, Ran and Jin, Yaochu and Tan, Kay Chen and Deb, Kalyanmoy},
+  journal={IEEE Transactions on Evolutionary Computation},
+  year={2023},
+  publisher={IEEE}
+}
+```
+
+## Acknowledgements
 
 A big shoutout to the following projects that have made EvoXBench possible:
 
@@ -110,6 +125,9 @@ A big shoutout to the following projects that have made EvoXBench possible:
  [AutoFormer](https://github.com/microsoft/Cream/tree/main/AutoFormer),
  [Django](https://www.djangoproject.com/),
  [pymoo](https://pymoo.org/).
+
+
+
 
 
 

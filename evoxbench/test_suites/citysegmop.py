@@ -1,9 +1,9 @@
 from evoxbench.benchmarks import MoSegNASBenchmark
 
-__all__ = ["citymop"]
+__all__ = ["citysegmop"]
 
 
-def citymop(problem_id):
+def citysegmop(problem_id):
     if problem_id == 1:
         return MoSegNASBenchmark(objs="err&h1_latency", normalized_objectives=False)
     elif problem_id == 2:

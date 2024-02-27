@@ -5,16 +5,9 @@ import math
 from pathlib import Path
 import numpy as np
 import itertools
+import time
 
 from evoxbench.modules import SearchSpace, Evaluator, Benchmark, SurrogateModel
-
-LOWER_BOUND = -1
-UPPER_BOUND = 1
-MIN_VALUE_OF_DATASET = [1.5595920924939386, -3.270169119255751]
-MAX_VALUE_OF_DATASET = [2.206984236920299, -0.3437587186721861]
-
-
-# from mosegnas.models import MoSegNASResult  # has to be imported after the init method
 
 __all__ = [
     "MoSegNASSearchSpace",
@@ -22,8 +15,6 @@ __all__ = [
     "MoSegNASBenchmark",
     "MoSegNASSurrogateModel",
 ]
-
-# HASH = {'conv1x1-compression': 0, 'conv3x3': 1, 'conv1x1-expansion': 2}
 
 
 def get_path(name):
@@ -34,24 +25,15 @@ class MoSegNASSearchSpace(SearchSpace):
     def __init__(self, subnet_str=True, **kwargs):
         super().__init__(**kwargs)
         self.subnet_str = subnet_str
-        # number of MAX layers of each stage:
-        # range of number of each layer estimated
-        # [0/2,
-        # 0~2,
-        # 0~2,
-        # 0~2,
-        # 0~2
-        # ]
-        self.depth_list = [2, 2, 3, 4, 2]
-
-        # choice of the layer except input stem
+        self.depth_list = [2, 2, 2, 3, 2]
         self.expand_ratio_list = [0.2, 0.25, 0.35]
         self.width_list = [2, 2, 2, 2, 2, 2]
-
-        # d e w
         self.categories = [list(range(d + 1)) for d in self.depth_list]
         self.categories += [list(range(3))] * 13
         self.categories += [list(range(3))] * 6
+        self.n_var = len(self.categories)
+        self.lb = [0] * self.n_var
+        self.ub = [len(cat) - 1 for cat in self.categories]
         self.category_mapping = {
             i: {val: j for j, val in enumerate(cat)}
             for i, cat in enumerate(self.categories)
@@ -76,8 +58,8 @@ class MoSegNASSearchSpace(SearchSpace):
         return subnet_str["d"] + e + subnet_str["w"]
 
     def _decode(self, x):
-        e = [self.expand_ratio_list[i] for i in x[4:-5]]
-        return {"d": x[:4].tolist(), "e": e, "w": x[-5:].tolist()}
+        e = [self.expand_ratio_list[i] for i in x[5:-6]]
+        return {"d": x[:5].tolist(), "e": e, "w": x[-6:].tolist()}
 
     def _one_hot_encode(self, X):
         if not isinstance(X, np.ndarray):
@@ -100,22 +82,23 @@ class MoSegNASBenchmark(Benchmark):
     def __init__(
         self,
         normalized_objectives=False,
-        surrogate_pretrained_list={
-            "latency": get_path("pretrained/surrogate_model/ranknet_latency.json"),
-            "mIoU": get_path("pretrained/surrogate_model/ranknet_mIoU.json"),
-        },
-        pretrained_json=get_path(
-            "pretrained/ofa_fanet_plus_bottleneck_rtx_fps@0.5.json"
+        surrogate_pretrained_list=get_path("ranknet_mIoU.json"),
+        lookup_table=get_path(
+            "ofa_fanet_plus_bottleneck_rtx_params_flops_lookup_ALL.json"
         ),
+        objs="err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption&flops&params",
         **kwargs
     ):
         self.search_space = MoSegNASSearchSpace()
         self.surrogate_pretrained_list = surrogate_pretrained_list
-        self.pretrained_json = pretrained_json
-        self.evaluator = MoSegNASEvaluator(surrogate_pretrained_list, pretrained_json)
-        super().__init__(
-            self.search_space, self.evaluator, normalized_objectives, **kwargs
+        self.lookup_table = lookup_table
+        self.objs = objs
+        self.evaluator = MoSegNASEvaluator(
+            objs=self.objs,
+            surrogate_pretrained_list=surrogate_pretrained_list,
+            lookup_table=lookup_table,
         )
+        super().__init__(self.search_space, self.evaluator, normalized_objectives)
 
     @property
     def name(self):
@@ -132,27 +115,138 @@ class MoSegNASBenchmark(Benchmark):
 
     @property
     def _utopian_point(self):
-        """ estimated from sampled architectures, use w/ caution """
+        """estimated from sampled architectures, use w/ caution"""
         return {
+            "err&h1_latency": np.array([0.0000, 1.9741]),
+            "err&h1_latency&flops": np.array([0.0000, 1.9741, 331067392]),
+            "err&h1_latency&params": np.array([0.0000, 1.9741, 132512]),
+            "err&h1_latency&h1_energy_consumption&flops": np.array(
+                [0.0000, 1.9741, 678.0691752185481, 331067392]
+            ),
+            "err&h1_latency&h1_energy_consumption&flops&params": np.array(
+                [0.0000, 1.9741, 678.0691752185481, 331067392, 132512]
+            ),
+            "err&h2_latency": np.array([0.0000, 58.74647839317504]),
+            "err&h2_latency&flops": np.array([0.0000, 58.74647839317504, 331067392]),
+            "err&h2_latency&params": np.array([0.0000, 58.74647839317504, 132512]),
+            "err&h2_latency&h2_energy_consumption&flops": np.array(
+                [0.0000, 58.74647839317504, 734.333948345669, 331067392]
+            ),
+            "err&h2_latency&h2_energy_consumption&flops&params": np.array(
+                [0.0000, 58.74647839317504, 734.333948345669, 331067392, 132512]
+            ),
+            "err&h1_latency&h2_latency": np.array([0.0000, 1.9741, 58.74647839317504]),
+            "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption": np.array(
+                [0.0000, 1.9741, 58.74647839317504, 678.0691752185481, 734.333948345669]
+            ),
+            "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption&flops": np.array(
+                [
+                    0.0000,
+                    1.9741,
+                    58.74647839317504,
+                    678.0691752185481,
+                    734.333948345669,
+                    331067392,
+                ]
+            ),
+            "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption&params": np.array(
+                [
+                    0.0000,
+                    1.9741,
+                    58.74647839317504,
+                    678.0691752185481,
+                    734.333948345669,
+                    132512,
+                ]
+            ),
+            "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption&flops&params": np.array(
+                [
+                    0.0000,
+                    1.9741,
+                    58.74647839317504,
+                    678.0691752185481,
+                    734.333948345669,
+                    331067392,
+                    132512,
+                ]
+            ),
         }[self.evaluator.objs]
 
     @property
     def _nadir_point(self):
-        """ estimated from sampled architectures, use w/ caution """
+        """estimated from sampled architectures, use w/ caution"""
         return {
+            "err&h1_latency": np.array([1.0000, 11.0309]),
+            "err&h1_latency&flops": np.array([1.0000, 11.0309, 1274736640]),
+            "err&h1_latency&params": np.array([1.0000, 11.0309, 453224]),
+            "err&h1_latency&h1_energy_consumption&flops": np.array(
+                [1.0000, 11.0309, 5019.1308754592665, 1274736640]
+            ),
+            "err&h1_latency&h1_energy_consumption&flops&params": np.array(
+                [1.0000, 11.0309, 5019.1308754592665, 1274736640, 453224]
+            ),
+            "err&h2_latency": np.array([1.0000, 237.3906080799434]),
+            "err&h2_latency&flops": np.array([1.0000, 237.3906080799434, 1274736640]),
+            "err&h2_latency&params": np.array([1.0000, 237.3906080799434, 453224]),
+            "err&h2_latency&h2_energy_consumption&flops": np.array(
+                [1.0000, 237.3906080799434, 2967.383299453641, 1274736640]
+            ),
+            "err&h2_latency&h2_energy_consumption&flops&params": np.array(
+                [1.0000, 237.3906080799434, 2967.383299453641, 1274736640, 453224]
+            ),
+            "err&h1_latency&h2_latency": np.array([1.0000, 11.0309, 237.3906080799434]),
+            "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption": np.array(
+                [
+                    1.0000,
+                    11.0309,
+                    237.3906080799434,
+                    5019.1308754592665,
+                    2967.383299453641,
+                ]
+            ),
+            "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption&flops": np.array(
+                [
+                    1.0000,
+                    11.0309,
+                    237.3906080799434,
+                    5019.1308754592665,
+                    2967.383299453641,
+                    1274736640,
+                ]
+            ),
+            "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption&params": np.array(
+                [
+                    1.0000,
+                    11.0309,
+                    237.3906080799434,
+                    5019.1308754592665,
+                    2967.383299453641,
+                    453224,
+                ]
+            ),
+            "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption&flops&params": np.array(
+                [
+                    1.0000,
+                    11.0309,
+                    237.3906080799434,
+                    5019.1308754592665,
+                    2967.383299453641,
+                    1274736640,
+                    453224,
+                ]
+            ),
         }[self.evaluator.objs]
 
 
 class MoSegNASEvaluator(Evaluator):
-    def __init__(self, surrogate_pretrained_list=None, pretrained_json=None, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, objs, surrogate_pretrained_list, lookup_table):
+        super().__init__(objs)
         self.surrogate_pretrained_list = surrogate_pretrained_list
-
         self.feature_encoder = MoSegNASSearchSpace()
         self.surrogate_model = MoSegNASSurrogateModel(
-            pretrained_weights=self.surrogate_pretrained_list,
+            surrogate_pretrained_list=self.surrogate_pretrained_list,
             categories=self.feature_encoder.categories,
-            lookup_table=pretrained_json,
+            lookup_table=lookup_table,
         )
 
     @property
@@ -161,24 +255,18 @@ class MoSegNASEvaluator(Evaluator):
 
     def evaluate(
         self,
-        archs,  # archs is subnets
-        true_eval=False,  # true_eval: if evaluate based on data or true inference result
-        objs="params&flops&latency&FPS&mIoU",  # objectives to be minimized/maximized
-        **kwargs
+        archs,
+        objs=None,
+        true_eval=True,
     ):
         """evalute the performance of the given subnets"""
         batch_stats = []
 
         for index, subnet_encoded in enumerate(archs):
-            print(
-                "evaluating subnet index {}, subnet {}:".format(index, subnet_encoded)
+            pred = self.surrogate_model.predict(
+                subnet=subnet_encoded, true_eval=true_eval, objs=self.objs
             )
 
-            pred = self.surrogate_model.predict(
-                subnet=subnet_encoded, true_eval=true_eval, objs=objs
-            )
-            if "FPS" in objs:
-                pred["FPS"] = 1000.0 / pred["latency"]
             batch_stats.append(pred)
 
         return batch_stats
@@ -264,7 +352,7 @@ class MosegNASRankNet:
         return max(0, x)
 
     def dropout(self, x):
-        return 0.0 if random.random() < self.drop else x
+        return 0.0 if random.random() < self.drop else x / (1 - self.drop)
 
     def linear(self, inputs, weights, biases):
         return [
@@ -281,13 +369,18 @@ class MosegNASRankNet:
         outputs = [self.relu(x) for x in outputs]
 
         # Hidden layers
-        for layer in range(self.n_hidden_layers):
+        for layer in range(1, self.n_hidden_layers + 1):
             outputs = self.linear(outputs, self.weights[layer], self.biases[layer])
             outputs = [self.relu(x) for x in outputs]
+
+        # Dropout layer
+        outputs = [self.dropout(x) for x in outputs]
 
         # Output layer
         outputs = self.linear(outputs, self.weights[-1], self.biases[-1])
 
+        # Output -> [0, 1]
+        # outputs = [self.sigmoid(x) for x in outputs]
         return outputs
 
     def train(self):
@@ -297,27 +390,42 @@ class MosegNASRankNet:
 class MoSegNASSurrogateModel(SurrogateModel):
     def __init__(
         self,
-        surrogate_pretrained_list=None,
-        pretrained_json=None,
-        lookup_table=None,
+        surrogate_pretrained_list,
+        lookup_table,
+        pretrained_result=None,
         categories=[list(range(4))] * 24,
         **kwargs
     ):
         super().__init__()
-
-        self.pretrained_result = pretrained_json
-        self.lookup_table = lookup_table
+        self.pretrained_result = pretrained_result
+        self.surrogate_pretrained_list = surrogate_pretrained_list
+        self.lookup_table = json.load(open(lookup_table, "r"))
+        self.head_lookup_table = []
+        index = -1
+        for i in range(len(self.lookup_table)):
+            if self.lookup_table[i]["type"] == "HEAD":
+                self.head_lookup_table.append(self.lookup_table[i])
+            else:
+                index = i
+                break
+        self.lookup_table = self.lookup_table[index:]
         self.categories = categories
         self.searchSpace = MoSegNASSearchSpace()
 
-        # 10 model
-        if "latency" in surrogate_pretrained_list:
-            self.latency_pretrained = surrogate_pretrained_list["latency"]
-        if "mIoU" in surrogate_pretrained_list:
-            self.mIoU_pretrained = surrogate_pretrained_list["mIoU"]
-        else:
-            self.latency_pretrained = None
-            self.mIoU_pretrained = None
+        pretrained_list = open(surrogate_pretrained_list, "r")
+        pretrained_list = json.load(pretrained_list)
+        list = []
+        model_list = []
+        chunk_size = len(pretrained_list) // 10
+        for i in range(0, len(pretrained_list), chunk_size):
+            list.append(
+                dict(itertools.islice(pretrained_list.items(), i, i + chunk_size))
+            )
+
+        for i, sublist in enumerate(list):
+            model_list.append(MosegNASRankNet(pretrained=sublist))
+
+        self.mIoU_pretrained = model_list
 
     def name(self):
         return "MoSegNASSurrogateModel"
@@ -334,114 +442,202 @@ class MoSegNASSurrogateModel(SurrogateModel):
                     key in config and config[key] == value
                     for key, value in subnet[0].items()
                 ):
-                    return [
-                        result["params"],
-                        result["flops"],
-                        result["latency"],
-                        result["mIoU"],
-                    ]
+                    return [result["params"], result["flops"], 1 - result["mIoU"]]
         return None
+
+    def head_predictor(self, depth_head, width_head):
+        for ele in self.head_lookup_table:
+            if (
+                depth_head == ele["config"]["depth"]
+                and width_head == ele["config"]["width_mult"]
+            ):
+                return (
+                    float(ele["batch_params"]),
+                    float(ele["batch_flops"]),
+                    float(ele["h1_latency"]),
+                    float(ele["h2_latency"]),
+                    float(ele["h1_consumption"]),
+                    float(ele["h2_consumption"]),
+                )
+
+    def if_head_only(self, subnet):
+        for i in subnet[1:5]:
+            if i != 0:
+                return False
+        return True
 
     def addup_predictor(self, subnet):
         """method to predict performance only for flops or params from given architecture features(subnets)"""
-        lookup_table = json.load(open(self.lookup_table, "r"))
-        d_len = len(self.searchSpace.depth_list)
-        w_len = len(self.searchSpace.width_list)
-        e_len = len(self.searchSpace.categories) - d_len - w_len
-
-        depth = subnet[:d_len]
-        expand_ratio = subnet[d_len : d_len + e_len]
-        expand_ratio = [self.searchSpace.expand_ratio_list[i] for i in expand_ratio]
-        width = subnet[e_len + d_len :]
-
-        params, flops = 0.0, 0.0
-        for idx in range(len(depth)):
-            if depth[idx] != 0:
-                d = [0 for _ in range(d_len)]
-                w = [0 for _ in range(w_len)]
-                e = [0.0 for _ in range(e_len)]
-                d[idx] = depth[idx]
-                previous = sum(self.searchSpace.depth_list[0:idx])
-                length = self.searchSpace.depth_list[idx]
-                e[previous : previous + length] = expand_ratio[
-                    previous : previous + length
-                ]
-                w[idx] = width[idx]
-                parted_subnet = {"d": d, "e": e, "w": w}
-                for ele in lookup_table:
-                    print(parted_subnet.items())
-                    if all(
-                        key in ele["config"] and ele["config"][key] == value
-                        for key, value in parted_subnet.items()
-                    ):
-                        params += float(ele["params"])
-                        flops += float(ele["flops"])
-
-        return params, flops
-
-    def surrogate_predictor(self, subnet, pretrained_predictor, objs):
-        """method to predict performance only for latency or mIoU from given architecture features(subnets)"""
-        if "latency" in objs:
-            MAX_VALUE = MAX_VALUE_OF_DATASET[0]
-            MIN_VALUE = MIN_VALUE_OF_DATASET[0]
-        else:
-            MAX_VALUE = MAX_VALUE_OF_DATASET[1]
-            MIN_VALUE = MIN_VALUE_OF_DATASET[1]
-        subnet = self.searchSpace._one_hot_encode(subnet)
-        pretrained_list = json.load(open(pretrained_predictor, "r"))
-        list = []
-        model_list = []
-        chunk_size = len(pretrained_list) // 10
-        result = 0.0
-        for i in range(0, len(pretrained_list), chunk_size):
-            list.append(
-                dict(itertools.islice(pretrained_list.items(), i, i + chunk_size))
+        if self.if_head_only(subnet):
+            return (
+                453224,
+                1274736640,
+                11.0309,
+                237.3906080799434,
+                5019.1308754592665,
+                2967.383299453641,
             )
+        else:
+            d_len = len(self.searchSpace.depth_list)
+            w_len = len(self.searchSpace.width_list)
+            e_len = len(self.searchSpace.categories) - d_len - w_len
 
-        for i, sublist in enumerate(list):
-            # print(f"Sublist {i+1}: {sublist}")
-            model_list.append(MosegNASRankNet(pretrained=sublist))
+            depth = subnet[:d_len]
+            expand_ratio = subnet[d_len : d_len + e_len]
+            width = subnet[e_len + d_len :]
 
-        for model in model_list:
-            result_list = model.forward(subnet)
-            original_data = (np.array(result_list) - LOWER_BOUND) * (
-                MAX_VALUE - MIN_VALUE
-            ) / (UPPER_BOUND - LOWER_BOUND) + MIN_VALUE
-            original_data = np.exp(original_data)
-            result += sum(original_data) / len(original_data)
-        return result / len(model_list)
+            mult_list = [0.2, 0.25, 0.35]
+            width_head = [mult_list[i] for i in width[0:2]]
+            width_head.sort()
+            (
+                params,
+                flops,
+                h1_latency,
+                h2_latency,
+                h1_energy_consumption,
+                h2_energy_consumption,
+            ) = self.head_predictor([depth[0]], width_head)
+
+            (
+                base_params,
+                base_flops,
+                base_h1_latency,
+                base_h2_latency,
+                base_h1_energy_consumption,
+                base_h2_energy_consumption,
+            ) = self.head_predictor([0], [0.2, 0.2])
+
+            cell1 = {
+                "d": [0, depth[1]],
+                "e": expand_ratio[0:3],
+                "w": [0.2, 0.2, mult_list[width[2]]],
+            }
+            cell2 = {
+                "d": [0, depth[2]],
+                "e": expand_ratio[3:6],
+                "w": [0.2, 0.2, mult_list[width[3]]],
+            }
+            cell3 = {
+                "d": [0, depth[3]],
+                "e": expand_ratio[6:10],
+                "w": [0.2, 0.2, mult_list[width[4]]],
+            }
+            cell4 = {
+                "d": [0, depth[4]],
+                "e": expand_ratio[10:13],
+                "w": [0.2, 0.2, mult_list[width[5]]],
+            }
+            for cell in [cell1, cell2, cell3, cell4]:
+                if cell["d"][1] != 0:
+                    cell["e"].sort()
+                    cell["d"].sort()
+                    cell["w"].sort()
+                    for ele in self.lookup_table:
+                        if all(
+                            key in ele and ele[key] == value
+                            for key, value in cell.items()
+                        ):
+                            params += float(ele["batch_params"]) - base_params
+                            flops += float(ele["batch_flops"]) - base_flops
+                            h1_latency += float(ele["h1_latency"]) - base_h1_latency
+                            h2_latency += float(ele["h2_latency"]) - base_h2_latency
+                            h1_energy_consumption += (
+                                float(ele["h1_consumption"])
+                                - base_h1_energy_consumption
+                            )
+                            h2_energy_consumption += (
+                                float(ele["h2_consumption"])
+                                - base_h2_energy_consumption
+                            )
+                            break
+        h1_latency = h1_latency * random.uniform(0.98, 1.02)
+        h2_latency = h2_latency * random.uniform(0.98, 1.02)
+        h1_energy_consumption = h1_energy_consumption * random.uniform(0.95, 1.05)
+        h2_energy_consumption = h2_energy_consumption * random.uniform(0.95, 1.05)
+        return (
+            params,
+            flops,
+            h1_latency,
+            h2_latency,
+            h1_energy_consumption,
+            h2_energy_consumption,
+        )
+
+    def surrogate_predictor(self, subnet, pretrained_predictor, true_eval):
+        """method to predict performance only for latency or err from given architecture features(subnets)"""
+        if true_eval:
+            pretrained_predictor = [pretrained_predictor]
+            result = 0
+            return_list = []
+            for model in pretrained_predictor:
+                result_list = model.forward(subnet)
+                return_list.append(result_list[0])
+            result = sum(result_list) / len(result_list)
+            return result
+        else:
+            return pretrained_predictor.forward(subnet)[0]
 
     def predict(self, subnet, true_eval, objs, **kwargs):
         """method to predict performance from given architecture features(subnets)"""
         pred = {}
-
         if true_eval:
-            if "params" or "flops" in objs:
-                pred["params"] = self.addup_predictor(subnet=subnet)
-            if "latency" in objs:
-                pred["latency"] = self.surrogate_predictor(
-                    subnet=subnet,
-                    pretrained_predictor=self.latency_pretrained,
-                    objs="latency",
-                )
-            if "mIoU" in objs:
-                pred["mIoU"] = self.surrogate_predictor(
-                    subnet=subnet,
-                    pretrained_predictor=self.mIoU_pretrained,
-                    objs="mIoU",
-                )
+            if (
+                "params"
+                or "flops"
+                or "h1_latency"
+                or "h2_latency"
+                or "h1_energy_consumption"
+                or "h2_energy_consumption" in objs
+            ):
+                subnet2 = subnet["d"] + subnet["e"] + subnet["w"]
+                (
+                    pred["params"],
+                    pred["flops"],
+                    pred["h1_latency"],
+                    pred["h2_latency"],
+                    pred["h1_energy_consumption"],
+                    pred["h2_energy_consumption"],
+                ) = self.addup_predictor(subnet=subnet2)
             if "err" in objs:
+                subnet = self.searchSpace._encode(subnet)
+                subnet = self.searchSpace._one_hot_encode(subnet)
                 pred["err"] = 1 - self.surrogate_predictor(
                     subnet=subnet,
-                    pretrained_predictor=self.mIoU_pretrained,
-                    objs="mIoU",
+                    pretrained_predictor=self.mIoU_pretrained[0],
+                    true_eval=true_eval,
                 )
+                pred["err"] = min(pred["err"], 1.0000)
+                pred["err"] = max(pred["err"], 0.0000)
         else:
-            try:
-                pred["params"], pred["flops"], pred["latency"], pred["mIoU"] = self.fit(
-                    subnet=subnet
+            if (
+                "params"
+                or "flops"
+                or "h1_latency"
+                or "h2_latency"
+                or "h1_energy_consumption"
+                or "h2_energy_consumption" in objs
+            ):
+                subnet2 = subnet["d"] + subnet["e"] + subnet["w"]
+                (
+                    pred["params"],
+                    pred["flops"],
+                    pred["h1_latency"],
+                    pred["h2_latency"],
+                    pred["h1_energy_consumption"],
+                    pred["h2_energy_consumption"],
+                ) = self.addup_predictor(subnet=subnet2)
+            if "err" in objs:
+                subnet = self.searchSpace._encode(subnet)
+                subnet = self.searchSpace._one_hot_encode(subnet)
+                pred["err"] = 1 - self.surrogate_predictor(
+                    subnet=subnet,
+                    pretrained_predictor=self.mIoU_pretrained[0],
+                    true_eval=true_eval,
                 )
-            except:
-                raise Exception("No result found!")
+                pred["err"] = min(pred["err"], 1.0000)
+                pred["err"] = max(pred["err"], 0.0000)
 
-        return pred
+        result = {}
+        for _ in objs.split("&"):
+            result[_] = pred[_]
+        return result

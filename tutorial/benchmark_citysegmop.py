@@ -220,7 +220,7 @@ if __name__ == "__main__":
                 return obj.tolist()
             return json.JSONEncoder.default(self, obj)
 
-    parser = argparse.ArgumentParser(description="Benchmark CITYSEG/MOP")
+    parser = argparse.ArgumentParser(description="Benchmark CitySeg/MOP")
     parser.add_argument("--moea", type=str, default="moead", help="which MOEA to run")
     parser.add_argument("--runs", type=int, default=31, help="number of runs to repeat")
     args = parser.parse_args()

@@ -10,16 +10,16 @@
 
 ---
 
-EvoXBench is a platfrom offering **instant benchmarking** of evolutionary multi-objective optimization (EMO) algorithms in neural architecture search (NAS), with ready to use test suites. It facilitates efficient performance assessments **with NO requirement of GPUs or PyTorch/TensorFlow**, enhancing accessibility for a broader range of research applications. It encompasses extensive test suites that cover a variety of datasets (CIFAR10, ImageNet, etc.), search spaces (NASBench101, NASBench201, NATS, DARTS, ResNet50, Transformer, MNV3, etc.), and hardware devices (Eyeriss, GPUs, Samsung Note10, etc.). It provides a versatile interface **compatible with multiple programming languages** (Java, Matlab, Python, etc.).
+EvoXBench is a platfrom offering **instant benchmarking** of evolutionary multi-objective optimization (EMO) algorithms in neural architecture search (NAS), with ready to use test suites. It facilitates efficient performance assessments **with NO requirement of GPUs or PyTorch/TensorFlow**, enhancing accessibility for a broader range of research applications. It encompasses extensive test suites that cover a variety of datasets (CIFAR10, ImageNet, Cityscapes, etc.), search spaces (NASBench101, NASBench201, NATS, DARTS, ResNet50, Transformer, MNV3, MoSegNAS, etc.), and hardware devices (Eyeriss, GPUs, Samsung Note10, etc.). It provides a versatile interface **compatible with multiple programming languages** (Java, Matlab, Python, etc.).
 
 ---
 
 
 ## 📢 Latest News & Updates
 
-- EvoXBench has been updated to version **1.0.3**! This latest release addresses bugs in IN-1KMOP5, IN-1KMOP6, and the NB201 benchmark.
+- EvoXBench has been updated to version **1.0.4**! This latest release adds new test suite **CitySeg/MOP**.
 
-  If you're already onboard with EvoXBench, give this command a spin: `pip install evoxbench==1.0.3`.
+  If you're already onboard with EvoXBench, give this command a spin: `pip install evoxbench==1.0.4`.
 
 
 
@@ -58,8 +58,8 @@ EvoXBench is a platfrom offering **instant benchmarking** of evolutionary multi-
       or [Baidu云盘（提取码：mhgs）](https://pan.baidu.com/s/1PwWloA543-81O-GFkA7GKg)
 
     - ``data.zip``
-      via [Google Drive](https://drive.google.com/file/d/1fUZtpTjfEQao2unLKaspL8fOq4xdSXt2/view?usp=sharing)
-      or [Baidu云盘（提取码：lfib）](https://pan.baidu.com/s/1yopkISKyjbWIHXFV_Op3pg)
+      via [Google Drive](https://drive.google.com/file/d/1r0iSCq1gLFs5xnmp1MDiqcqxNcY5q6Hp/view?usp=sharing)
+      or [Baidu云盘（提取码：9z45）](https://pan.baidu.com/s/17dUpiIosSCZoSgKXwSBlVg)
 
 2. Run `pip install evoxbench` to get the benchmark.
 

@@ -3,7 +3,7 @@
 %      install and configure EvoXBench.
 %   2. Download PlatEMO (https://github.com/BIMK/PlatEMO), the EvoXBench 
 %      code in matlab is embedded in PlatEMO platform.
-%   3. Run the command "evoxbenchrpc” in the terminal (In Window system, 
+%   3. Run the command "evoxbenchrpc" in the terminal (In Window system, 
 %      the evoxbench.exe executable file will be created and stored in the 
 %      "Scripts" folder in your python environment).
 %   4. Run PlatEMO. You can run this script directly or use the GUI to run.

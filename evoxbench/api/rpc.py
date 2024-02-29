@@ -69,6 +69,8 @@ def new_benchmark_obj(config):
         obj = benchmarks.ResNet50DBenchmark(**args)
     elif name == 'transformer':
         obj = benchmarks.TransformerBenchmark(**args)
+    elif name == 'mosegnas':
+        obj = benchmarks.MoSegNASBenchmark(**args)
     return obj
 
 

@@ -12,7 +12,7 @@ setup(
     # instead of
     # $ pip install EvoXBench
     name="evoxbench",
-    version="1.0.3",
+    version="1.0.4",
     description="A benchmark for NAS algorithms",  # Optional
     long_description=long_description,  # Optional
     long_description_content_type="text/markdown",
@@ -96,7 +96,6 @@ setup(
     # executes the function `main` from this package when invoked:
     entry_points={
         "console_scripts": [
-            # "evoxbench=evoxbench.__main__:main",
             "evoxbenchrpc=evoxbench.api.rpc:main",
         ],
     },

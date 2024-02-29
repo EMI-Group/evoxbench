@@ -15,9 +15,9 @@ from pymoo.operators.mutation.pm import PM
 from pymoo.operators.sampling.rnd import IntegerRandomSampling
 from pymoo.operators.repair.rounding import RoundingRepair
 
-from evoxbench.test_suites.citymop import citymop
+from evoxbench.test_suites.citysegmop import citysegmop
 
-class C10MOPProblem(Problem):
+class CitySegMOPProblem(Problem):
     def __init__(self, benchmark, **kwargs):
         super().__init__(
             n_var=benchmark.search_space.n_var,
@@ -230,8 +230,8 @@ if __name__ == "__main__":
         for r in range(1, args.runs + 1):
             run_stats = {"run": r}
 
-            benchmark = citymop(pid)
-            problem = C10MOPProblem(benchmark)
+            benchmark = citysegmop(pid)
+            problem = CitySegMOPProblem(benchmark)
 
             pop_size, n_gen, ref_dirs = get_benchmark_settings(problem.n_obj)
 

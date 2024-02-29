@@ -80,7 +80,7 @@ public class App {
                 bm = c10mop.createBenchmark(3);
             }
             else if (args[0].equals("mosegnas")){
-                CITYSEGMOP citymop = new CITYSEGMOP("127.0.0.1", 9876);
+                CITYSEGMOP citysegmop = new CITYSEGMOP("127.0.0.1", 9876);
                 bm = citysegmop.createBenchmark(1);
             }
             else {

@@ -2,7 +2,7 @@ addpath(genpath(cd));
 clear;
 clc;
 
-problem_list = {@CITYSEGMOP1, @CITYSEGMOP2, @CITYSEGMOP3, @CITYSEGMOP4, @CITYSEGMOP5, @CITYSEGMOP6, @CITYSEGMOP7, @CITYSEGMOP8, @CITYSEGMOP9, @CITYSEGMOP10, @CITYSEGMOP11, @CITYSEGMOP12, @CITYSEGMOP13, @CITYSEGMOP14, @CITYSEGMOP15};
+problem_list = {@CitySegMOP1, @CitySegMOP2, @CitySegMOP3, @CitySegMOP4, @CitySegMOP5, @CitySegMOP6, @CitySegMOP7, @CitySegMOP8, @CitySegMOP9, @CitySegMOP10, @CitySegMOP11, @CitySegMOP12, @CitySegMOP13, @CitySegMOP14, @CitySegMOP15};
 algorithms = {@NSGAII, @NSGAIII, @MOEAD, @RVEAa, @SMSEMOA};
 algorithm_names = {'nsga2', 'nsga3', 'moead', 'RVEAa', 'smsemoa'};
 pop_size = {100, 105, 105, 120, 126, 100, 105, 105, 120, 126, 105, 126, 132, 132, 217};

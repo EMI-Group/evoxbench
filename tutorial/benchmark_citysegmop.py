@@ -33,7 +33,7 @@ class CitySegMOPProblem(Problem):
 
     def _evaluate(self, x, out, *args, **kwargs):
 
-        F = self.benchmark.evaluate(x, true_eval=True)
+        F = self.benchmark.evaluate(x, true_eval=False)
 
         out["F"] = F
 

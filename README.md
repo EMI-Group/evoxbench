@@ -17,9 +17,9 @@ EvoXBench is a platfrom offering **instant benchmarking** of evolutionary multi-
 
 ## 📢 Latest News & Updates
 
-- EvoXBench has been updated to version **1.0.4**! This latest release adds new test suite **CitySeg/MOP**.
+- EvoXBench has been updated to version **1.0.5**! This latest release addresses bugs in CitySeg/MOP10 and HV calculation in the CitySeg/MOP test suite.
 
-  If you're already onboard with EvoXBench, give this command a spin: `pip install evoxbench==1.0.4`.
+  If you're already onboard with EvoXBench, give this command a spin: `pip install evoxbench==1.0.5`.
 
 
 

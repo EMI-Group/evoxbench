@@ -41,7 +41,7 @@ def citysegmop(problem_id):
         )
     elif problem_id == 10:
         return MoSegNASBenchmark(
-            objs="err&h1_latency&h1_energy_consumption&flops&params",
+            objs="err&h2_latency&h2_energy_consumption&flops&params",
             normalized_objectives=False,
         )
     elif problem_id == 11:

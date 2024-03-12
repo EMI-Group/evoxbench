@@ -117,55 +117,73 @@ class MoSegNASBenchmark(Benchmark):
     def _utopian_point(self):
         """estimated from sampled architectures, use w/ caution"""
         return {
-            "err&h1_latency": np.array([0.0000, 1.9741]),
-            "err&h1_latency&flops": np.array([0.0000, 1.9741, 331067392]),
-            "err&h1_latency&params": np.array([0.0000, 1.9741, 132512]),
+            "err&h1_latency": np.array([0.0000, 1.9741 * 0.98]),
+            "err&h1_latency&flops": np.array([0.0000, 1.9741 * 0.98, 331067392]),
+            "err&h1_latency&params": np.array([0.0000, 1.9741 * 0.98, 132512]),
             "err&h1_latency&h1_energy_consumption&flops": np.array(
-                [0.0000, 1.9741, 678.0691752185481, 331067392]
+                [0.0000, 1.9741 * 0.98, 678.0691752185481 * 0.95, 331067392]
             ),
             "err&h1_latency&h1_energy_consumption&flops&params": np.array(
-                [0.0000, 1.9741, 678.0691752185481, 331067392, 132512]
+                [0.0000, 1.9741 * 0.98, 678.0691752185481 * 0.95, 331067392, 132512]
             ),
-            "err&h2_latency": np.array([0.0000, 58.74647839317504]),
-            "err&h2_latency&flops": np.array([0.0000, 58.74647839317504, 331067392]),
-            "err&h2_latency&params": np.array([0.0000, 58.74647839317504, 132512]),
+            "err&h2_latency": np.array([0.0000, 58.74647839317504 * 0.98]),
+            "err&h2_latency&flops": np.array(
+                [0.0000, 58.74647839317504 * 0.98, 331067392]
+            ),
+            "err&h2_latency&params": np.array(
+                [0.0000, 58.74647839317504 * 0.98, 132512]
+            ),
             "err&h2_latency&h2_energy_consumption&flops": np.array(
-                [0.0000, 58.74647839317504, 734.333948345669, 331067392]
+                [0.0000, 58.74647839317504 * 0.98, 734.333948345669 * 0.95, 331067392]
             ),
             "err&h2_latency&h2_energy_consumption&flops&params": np.array(
-                [0.0000, 58.74647839317504, 734.333948345669, 331067392, 132512]
+                [
+                    0.0000,
+                    58.74647839317504 * 0.98,
+                    734.333948345669 * 0.95,
+                    331067392,
+                    132512,
+                ]
             ),
-            "err&h1_latency&h2_latency": np.array([0.0000, 1.9741, 58.74647839317504]),
+            "err&h1_latency&h2_latency": np.array(
+                [0.0000, 1.9741 * 0.98, 58.74647839317504 * 0.98]
+            ),
             "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption": np.array(
-                [0.0000, 1.9741, 58.74647839317504, 678.0691752185481, 734.333948345669]
+                [
+                    0.0000,
+                    1.9741 * 0.98,
+                    58.74647839317504 * 0.98,
+                    678.0691752185481 * 0.95,
+                    734.333948345669 * 0.95,
+                ]
             ),
             "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption&flops": np.array(
                 [
                     0.0000,
-                    1.9741,
-                    58.74647839317504,
-                    678.0691752185481,
-                    734.333948345669,
+                    1.9741 * 0.98,
+                    58.74647839317504 * 0.98,
+                    678.0691752185481 * 0.95,
+                    734.333948345669 * 0.95,
                     331067392,
                 ]
             ),
             "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption&params": np.array(
                 [
                     0.0000,
-                    1.9741,
-                    58.74647839317504,
-                    678.0691752185481,
-                    734.333948345669,
+                    1.9741 * 0.98,
+                    58.74647839317504 * 0.98,
+                    678.0691752185481 * 0.95,
+                    734.333948345669 * 0.95,
                     132512,
                 ]
             ),
             "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption&flops&params": np.array(
                 [
                     0.0000,
-                    1.9741,
-                    58.74647839317504,
-                    678.0691752185481,
-                    734.333948345669,
+                    1.9741 * 0.98,
+                    58.74647839317504 * 0.98,
+                    678.0691752185481 * 0.95,
+                    734.333948345669 * 0.95,
                     331067392,
                     132512,
                 ]
@@ -176,61 +194,73 @@ class MoSegNASBenchmark(Benchmark):
     def _nadir_point(self):
         """estimated from sampled architectures, use w/ caution"""
         return {
-            "err&h1_latency": np.array([1.0000, 11.0309]),
-            "err&h1_latency&flops": np.array([1.0000, 11.0309, 1274736640]),
-            "err&h1_latency&params": np.array([1.0000, 11.0309, 453224]),
+            "err&h1_latency": np.array([1.0000, 11.0309 * 1.02]),
+            "err&h1_latency&flops": np.array([1.0000, 11.0309 * 1.02, 1274736640]),
+            "err&h1_latency&params": np.array([1.0000, 11.0309 * 1.02, 453224]),
             "err&h1_latency&h1_energy_consumption&flops": np.array(
-                [1.0000, 11.0309, 5019.1308754592665, 1274736640]
+                [1.0000, 11.0309 * 1.02, 5019.1308754592665 * 1.05, 1274736640]
             ),
             "err&h1_latency&h1_energy_consumption&flops&params": np.array(
-                [1.0000, 11.0309, 5019.1308754592665, 1274736640, 453224]
+                [1.0000, 11.0309 * 1.02, 5019.1308754592665 * 1.05, 1274736640, 453224]
             ),
-            "err&h2_latency": np.array([1.0000, 237.3906080799434]),
-            "err&h2_latency&flops": np.array([1.0000, 237.3906080799434, 1274736640]),
-            "err&h2_latency&params": np.array([1.0000, 237.3906080799434, 453224]),
+            "err&h2_latency": np.array([1.0000, 237.3906080799434 * 1.02]),
+            "err&h2_latency&flops": np.array(
+                [1.0000, 237.3906080799434 * 1.02, 1274736640]
+            ),
+            "err&h2_latency&params": np.array(
+                [1.0000, 237.3906080799434 * 1.02, 453224]
+            ),
             "err&h2_latency&h2_energy_consumption&flops": np.array(
-                [1.0000, 237.3906080799434, 2967.383299453641, 1274736640]
+                [1.0000, 237.3906080799434 * 1.02, 2967.383299453641 * 1.05, 1274736640]
             ),
             "err&h2_latency&h2_energy_consumption&flops&params": np.array(
-                [1.0000, 237.3906080799434, 2967.383299453641, 1274736640, 453224]
+                [
+                    1.0000,
+                    237.3906080799434 * 1.02,
+                    2967.383299453641 * 1.05,
+                    1274736640,
+                    453224,
+                ]
             ),
-            "err&h1_latency&h2_latency": np.array([1.0000, 11.0309, 237.3906080799434]),
+            "err&h1_latency&h2_latency": np.array(
+                [1.0000, 11.0309 * 1.02, 237.3906080799434 * 1.02]
+            ),
             "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption": np.array(
                 [
                     1.0000,
-                    11.0309,
-                    237.3906080799434,
-                    5019.1308754592665,
-                    2967.383299453641,
+                    11.0309 * 1.02,
+                    237.3906080799434 * 1.02,
+                    5019.1308754592665 * 1.05,
+                    2967.383299453641 * 1.05,
                 ]
             ),
             "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption&flops": np.array(
                 [
                     1.0000,
-                    11.0309,
-                    237.3906080799434,
-                    5019.1308754592665,
-                    2967.383299453641,
+                    11.0309 * 1.02,
+                    237.3906080799434 * 1.02,
+                    5019.1308754592665 * 1.05,
+                    2967.383299453641 * 1.05,
                     1274736640,
                 ]
             ),
             "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption&params": np.array(
                 [
                     1.0000,
-                    11.0309,
-                    237.3906080799434,
-                    5019.1308754592665,
-                    2967.383299453641,
+                    11.0309 * 1.02,
+                    237.3906080799434 * 1.02,
+                    5019.1308754592665 * 1.05,
+                    2967.383299453641 * 1.05,
                     453224,
                 ]
             ),
             "err&h1_latency&h2_latency&h1_energy_consumption&h2_energy_consumption&flops&params": np.array(
                 [
                     1.0000,
-                    11.0309,
-                    237.3906080799434,
-                    5019.1308754592665,
-                    2967.383299453641,
+                    11.0309 * 1.02,
+                    237.3906080799434 * 1.02,
+                    5019.1308754592665 * 1.05,
+                    2967.383299453641 * 1.05,
                     1274736640,
                     453224,
                 ]
@@ -461,7 +491,10 @@ class MoSegNASSurrogateModel(SurrogateModel):
                 )
 
     def if_head_only(self, subnet):
-        for i in subnet[1:5]:
+        d_len = len(self.searchSpace.depth_list)
+        depth = subnet[:d_len]
+        head = [depth[0]]
+        for i in head:
             if i != 0:
                 return False
         return True
@@ -472,10 +505,10 @@ class MoSegNASSurrogateModel(SurrogateModel):
             return (
                 453224,
                 1274736640,
-                11.0309,
-                237.3906080799434,
-                5019.1308754592665,
-                2967.383299453641,
+                11.0309 * 1.02,
+                237.3906080799434 * 1.02,
+                5019.1308754592665 * 1.05,
+                2967.383299453641 * 1.05,
             )
         else:
             d_len = len(self.searchSpace.depth_list)

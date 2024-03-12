@@ -12,7 +12,7 @@ setup(
     # instead of
     # $ pip install EvoXBench
     name="evoxbench",
-    version="1.0.4",
+    version="1.0.5",
     description="A benchmark for NAS algorithms",  # Optional
     long_description=long_description,  # Optional
     long_description_content_type="text/markdown",
@@ -54,13 +54,7 @@ setup(
     # `src/`, it is necessary to specify the `package_dir` argument.
     # package_dir={"": ""},
     # find_packages failed to work, so manually list packages.
-    # data_files=[('', ['evoxbench/__main__.py'])],
     packages=find_packages(),
-    # packages=[
-    #     "evoxbench",
-    #     "evoxbench.benchmarks", "evoxbench.api", "evoxbench.modules",
-    #     "evoxbench.api.pymoo"
-    #     ],  # Required
     # Specify which Python versions you support. In contrast to the
     # 'Programming Language' classifiers above, 'pip install' will check this
     # and refuse to install the project if the version does not match. See

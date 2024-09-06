@@ -178,6 +178,7 @@ if __name__ == '__main__':
                 plot = Scatter()
                 if pid < 8:
                     pf = benchmark.pareto_front
+                    pf = benchmark.normalize(pf)
                     sort_idx = np.argsort(pf[:, 0])
 
                     # plot.add(pf[sort_idx], plot_type="line", color="black", alpha=0.7)

@@ -1,12 +1,22 @@
 <h1 align="center">
+  <a href="https://github.com/EMI-Group/evox">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/bench-logo-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/bench-logo-light.png">
-    <img alt="EvoXBench Logo" height="48em" src="./assets/bench-logo-light.png">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/evox_brand_light.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/evox_brand_dark.svg">
+    <img alt="EvoX Logo" height="128" width="500px" src="./assets/evox_brand_dark.svg">
   </picture>
-  <br>
-  Neural Architecture Search as Multiobjective Optimization Benchmarks: Problem Formulation and Performance Assessment <a href=https://arxiv.org/abs/2208.04321>arXiv</a>
+  </a>
 </h1>
+
+<h2 align="center">
+🌟 Neural Architecture Search as Multiobjective Optimization Benchmarks: Problem Formulation and Performance Assessment 🌟
+</h2>
+
+<div align="center">
+  <a href="https://arxiv.org/abs/2208.04321">
+    <img src="https://img.shields.io/badge/paper-arxiv-red?style=for-the-badge" alt="EvoMO Paper on arXiv">
+  </a>
+</div>
 
 ---
 
